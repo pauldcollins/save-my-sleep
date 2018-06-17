@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Button,
   View,
@@ -6,11 +6,11 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity
-} from 'react-native';
-import { StackNavigator } from 'react-navigation';
+} from "react-native";
+import { StackNavigator } from "react-navigation";
 
 // content
-import * as content from './content';
+import * as content from "./content";
 
 class DetailsScreen extends React.Component {
   render() {
@@ -43,9 +43,7 @@ class DetailsScreen extends React.Component {
                   <View key={index}>
                     {separator}
                     <Text style={styles.contentText}>
-                      <Text style={{ fontWeight: 'bold' }}>
-                        {index + 1}.)
-                      </Text>{' '}
+                      <Text style={{ fontWeight: "bold" }}>{index + 1}.)</Text>{" "}
                       {item}
                     </Text>
                   </View>
@@ -56,7 +54,7 @@ class DetailsScreen extends React.Component {
 
         <TouchableOpacity
           style={styles.button}
-          onPress={() => this.props.navigation.navigate('Activity')}
+          onPress={() => this.props.navigation.navigate("Timer")}
           underlayColor="#fff"
         >
           <Text style={styles.buttonText}>Start sleeping!</Text>
@@ -77,21 +75,21 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#ffffff',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#ffffff",
     paddingTop: 30,
     paddingBottom: 30
   },
   headerText: {
     fontSize: 30,
-    color: '#545455',
-    textAlign: 'center'
+    color: "#545455",
+    textAlign: "center"
   },
   headerSubText: {
     fontSize: 20,
-    color: '#545455',
-    textAlign: 'center',
+    color: "#545455",
+    textAlign: "center",
     paddingTop: 10,
     paddingHorizontal: 20
   },
@@ -101,30 +99,30 @@ const styles = StyleSheet.create({
   },
   contentText: {
     fontSize: 20,
-    color: '#ffffff',
-    textAlign: 'left',
+    color: "#ffffff",
+    textAlign: "left",
     paddingVertical: 15,
     paddingHorizontal: 20,
-    borderBottomColor: '#ffffff',
+    borderBottomColor: "#ffffff",
     borderBottomWidth: 1
   },
   separator: {
     height: 1,
-    backgroundColor: '#FFF',
+    backgroundColor: "#FFF",
     opacity: 0.3
   },
   button: {
     marginHorizontal: 40,
     marginVertical: 20,
     paddingVertical: 10,
-    backgroundColor: '#189972',
+    backgroundColor: "#189972",
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: '#fff'
+    borderColor: "#fff"
   },
   buttonText: {
-    color: '#fff',
-    textAlign: 'center',
+    color: "#fff",
+    textAlign: "center",
     paddingLeft: 10,
     paddingRight: 10,
     fontSize: 20
