@@ -100,21 +100,15 @@ class StopWatch extends React.Component {
 
   formatTime() {
     let now = this.state.elapsed;
-    let msecs = now % 1000;
-
-    if (msecs < 10) {
-      msecs = `00${msecs}`;
-    } else if (msecs < 100) {
-      msecs = `0${msecs}`;
-    }
 
     let seconds = Math.floor(now / 1000);
     let minutes = Math.floor(now / 60000);
     let hours = Math.floor(now / 3600000);
+
     seconds = seconds - minutes * 60;
     minutes = minutes - hours * 60;
-    let formatted;
 
+    let formatted;
     formatted = `${seconds < 10 ? 0 : ""}${seconds}`;
 
     if (typeof this.props.getTime === "function") this.props.getTime(formatted);
