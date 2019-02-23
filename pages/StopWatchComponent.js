@@ -6,6 +6,8 @@ import {
   TouchableHighlight,
   Dimensions
 } from "react-native";
+import { Audio } from "expo";
+// import Sound from 'react-native-sound';
 
 import * as content from "./content";
 
@@ -27,18 +29,49 @@ class StopWatch extends React.Component {
       }
     };
     this.incrementer = null;
+
+    this.soundObject = new Audio.Sound();
   }
 
+  async componentWillMount() {
+    this.soundObject.loadAsync(require("./../assets/sounds/drum.wav"));
+  }
+
+  _handlePlaySound = async val => {
+    try {
+      await this.soundObject.setPositionAsync(0);
+      await this.soundObject.playAsync(); //This works, but just only once!
+    } catch (error) {
+      //
+    }
+  };
+
   componentDidUpdate() {
-    console.log("TEST");
+    // console.log("TEST");
+    // await sound.setPositionAsync(0);
+    // await this.soundObject.playAsync();
+    // (async () => {
+    //   const soundObject = new Audio.Sound();
+    //   try {
+    //     soundObject.loadAsync(require("./../assets/sounds/drum.wav"));
+    //     soundObject.playAsync();
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // })();
+
+    this._handlePlaySound();
+
     if (
       this.state.steps.loopsComplete === this.state.steps.loops &&
       this.state.steps.currentStep !== "step1"
     ) {
+      this.soundObject.playAsync();
       this.handleResetClick();
       this.handleStopClick();
       // this.state.steps.loopsComplete = 0;
     } else {
+      this.soundObject.playAsync();
       if (
         this.state.steps.currentStep === "step1" &&
         this.state.secondsElapsed === this.state.steps.step1

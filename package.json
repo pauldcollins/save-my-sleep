@@ -22,6 +22,7 @@
     "expo": "^32.0.0",
     "react": "16.5.0",
     "react-native": "0.57.1",
+    "react-native-sound": "^0.10.12",
     "react-native-stopwatch-timer": "0.0.20",
     "react-navigation": "^1.5.7"
   }
