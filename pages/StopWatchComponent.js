@@ -7,156 +7,8 @@ import {
   Dimensions
 } from "react-native";
 import { Audio } from "expo";
-// import Sound from 'react-native-sound';
 
 import * as content from "./content";
-
-const formattedSeconds = sec =>
-  Math.floor(sec / 60) + ":" + ("0" + (sec % 60)).slice(-2);
-
-class StopWatch extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      secondsElapsed: 0,
-      lastClearedIncrementer: null,
-      steps: {
-        currentStep: "step1",
-        step1: 2,
-        step2: 4,
-        loops: 3,
-        loopsComplete: 0
-      }
-    };
-    this.incrementer = null;
-
-    this.soundObject = new Audio.Sound();
-  }
-
-  async componentWillMount() {
-    this.soundObject.loadAsync(require("./../assets/sounds/drum.wav"));
-  }
-
-  _handlePlaySound = async val => {
-    try {
-      await this.soundObject.setPositionAsync(0);
-      await this.soundObject.playAsync(); //This works, but just only once!
-    } catch (error) {
-      //
-    }
-  };
-
-  componentDidUpdate() {
-    // console.log("TEST");
-    // await sound.setPositionAsync(0);
-    // await this.soundObject.playAsync();
-    // (async () => {
-    //   const soundObject = new Audio.Sound();
-    //   try {
-    //     soundObject.loadAsync(require("./../assets/sounds/drum.wav"));
-    //     soundObject.playAsync();
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // })();
-
-    this._handlePlaySound();
-
-    if (
-      this.state.steps.loopsComplete === this.state.steps.loops &&
-      this.state.steps.currentStep !== "step1"
-    ) {
-      this.soundObject.playAsync();
-      this.handleResetClick();
-      this.handleStopClick();
-      // this.state.steps.loopsComplete = 0;
-    } else {
-      this.soundObject.playAsync();
-      if (
-        this.state.steps.currentStep === "step1" &&
-        this.state.secondsElapsed === this.state.steps.step1
-      ) {
-        this.state.steps.currentStep = "step2";
-        this.handleResetClick();
-        this.handleStartClick();
-      } else if (
-        this.state.steps.currentStep === "step2" &&
-        this.state.secondsElapsed === this.state.steps.step2
-      ) {
-        this.state.steps.currentStep = "step1";
-        this.state.steps.loopsComplete = this.state.steps.loopsComplete + 1;
-        this.handleResetClick();
-        this.handleStartClick();
-      }
-    }
-  }
-
-  handleStartClick() {
-    this.incrementer = setInterval(
-      () =>
-        this.setState({
-          secondsElapsed: this.state.secondsElapsed + 1
-        }),
-      1000
-    );
-  }
-
-  handleStopClick() {
-    clearInterval(this.incrementer);
-    this.setState({
-      secondsElapsed: 0,
-      lastClearedIncrementer: null,
-      steps: {
-        currentStep: "step1",
-        step1: 2,
-        step2: 4,
-        loops: 3,
-        loopsComplete: 0
-      }
-    });
-  }
-
-  handleResetClick() {
-    clearInterval(this.incrementer);
-    this.setState({
-      secondsElapsed: 0
-    });
-  }
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.timer}>
-          <Text style={styles.timerText}>
-            {formattedSeconds(this.state.secondsElapsed)}
-          </Text>
-        </View>
-        {this.state.secondsElapsed === 0 &&
-        this.state.steps.loopsComplete === 0 &&
-        this.state.steps.currentStep === "step1" ? (
-          <TouchableHighlight
-            style={[
-              styles.button,
-              {
-                backgroundColor: content[this.props.screenName].backgroundColor
-              }
-            ]}
-            onPress={this.handleStartClick.bind(this)}
-          >
-            <Text style={styles.buttonText}>start</Text>
-          </TouchableHighlight>
-        ) : (
-          <TouchableHighlight
-            style={styles.button}
-            onPress={this.handleStopClick.bind(this)}
-          >
-            <Text style={styles.buttonText}>stop</Text>
-          </TouchableHighlight>
-        )}
-      </View>
-    );
-  }
-}
 
 const styles = StyleSheet.create({
   container: {
@@ -195,5 +47,151 @@ const styles = StyleSheet.create({
     fontSize: 20
   }
 });
+
+const formattedSeconds = sec =>
+  Math.floor(sec / 60) + ":" + ("0" + (sec % 60)).slice(-2);
+
+class StopWatch extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      secondsElapsed: 0,
+      lastClearedIncrementer: null,
+      steps: {
+        currentStep: "step1",
+        step1: 8,
+        step2: 7,
+        step3: 8,
+        loops: 2,
+        loopsComplete: 0
+      }
+    };
+    this.incrementer = null;
+
+    this.heartBeat = new Audio.Sound();
+  }
+
+  async componentWillMount() {
+    // breathe_in.wav;
+    // breathe_out.wav;
+    // hold_breath.wav;
+    this.heartBeat.loadAsync(
+      require("./../assets/sounds/the878/heartbeat_single.wav")
+    );
+  }
+
+  handlePlaySound = async val => {
+    try {
+      await this.heartBeat.setPositionAsync(0);
+      await this.heartBeat.playAsync();
+    } catch (error) {
+      console.log("ERROR", error);
+    }
+  };
+
+  componentDidUpdate() {
+    const { steps, secondsElapsed } = this.state;
+    this.handlePlaySound();
+
+    if (steps.loopsComplete === steps.loops) {
+      this.handleResetClick();
+      this.handleStopClick();
+      steps.loopsComplete = 0;
+    } else {
+      if (
+        steps.currentStep === "step1" &&
+        secondsElapsed === this.state.steps.step1
+      ) {
+        steps.currentStep = "step2";
+        this.handleResetClick();
+        this.handleStartClick();
+      } else if (
+        steps.currentStep === "step2" &&
+        secondsElapsed === steps.step2
+      ) {
+        steps.currentStep = "step3";
+        this.handleResetClick();
+        this.handleStartClick();
+      } else if (
+        steps.currentStep === "step3" &&
+        secondsElapsed === steps.step3
+      ) {
+        steps.currentStep = "step1";
+        steps.loopsComplete = steps.loopsComplete + 1;
+        this.handleResetClick();
+        this.handleStartClick();
+      }
+    }
+  }
+
+  handleStartClick() {
+    this.incrementer = setInterval(
+      () =>
+        this.setState({
+          secondsElapsed: this.state.secondsElapsed + 1
+        }),
+      1000
+    );
+  }
+
+  handleStopClick() {
+    clearInterval(this.incrementer);
+    this.setState({
+      secondsElapsed: 0,
+      lastClearedIncrementer: null,
+      steps: {
+        currentStep: "step1",
+        step1: 8,
+        step2: 7,
+        step3: 8,
+        loops: 3,
+        loopsComplete: 0
+      }
+    });
+  }
+
+  handleResetClick() {
+    clearInterval(this.incrementer);
+    this.setState({
+      secondsElapsed: 0
+    });
+  }
+
+  render() {
+    const { steps, secondsElapsed } = this.state;
+
+    return (
+      <View style={styles.container}>
+        <View style={styles.timer}>
+          <Text style={styles.timerText}>
+            {formattedSeconds(secondsElapsed)}
+          </Text>
+        </View>
+        {secondsElapsed === 0 &&
+        steps.loopsComplete === 0 &&
+        steps.currentStep === "step1" ? (
+          <TouchableHighlight
+            style={[
+              styles.button,
+              {
+                backgroundColor: content[this.props.screenName].backgroundColor
+              }
+            ]}
+            onPress={this.handleStartClick.bind(this)}
+          >
+            <Text style={styles.buttonText}>start</Text>
+          </TouchableHighlight>
+        ) : (
+          <TouchableHighlight
+            style={styles.button}
+            onPress={this.handleStopClick.bind(this)}
+          >
+            <Text style={styles.buttonText}>stop</Text>
+          </TouchableHighlight>
+        )}
+      </View>
+    );
+  }
+}
 
 export default StopWatch;
