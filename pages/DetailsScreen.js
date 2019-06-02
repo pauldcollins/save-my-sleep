@@ -22,48 +22,53 @@ class DetailsScreen extends React.Component {
 
     return (
       <ScrollView style={styles.container}>
-        <View style={styles.headerContainer}>
-          <Text style={styles.headerText}>{content[screenName].heading}</Text>
-          <Text style={styles.headerSubText}>
-            {content[screenName].subHeading}
-          </Text>
+        <View style={{ marginBottom: 30 }}>
+          <View style={styles.headerContainer}>
+            <Text style={styles.headerText}>{content[screenName].heading}</Text>
+            <Text style={styles.headerSubText}>
+              {content[screenName].subHeading}
+            </Text>
+          </View>
+
+          <View
+            style={[
+              { backgroundColor: content[screenName].backgroundColor },
+              styles.contentContainer
+            ]}
+          >
+            {contentArray
+              ? contentArray.map((item, index) => {
+                  const separator =
+                    index !== 0 ? <View style={styles.separator} /> : null;
+                  return (
+                    <View key={index}>
+                      {separator}
+                      <Text style={styles.contentText}>
+                        <Text style={{ fontWeight: "bold" }}>
+                          {index + 1}.)
+                        </Text>{" "}
+                        {item}
+                      </Text>
+                    </View>
+                  );
+                })
+              : null}
+          </View>
+
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => this.props.navigation.navigate("Timer")}
+            underlayColor="#fff"
+          >
+            <Text style={styles.buttonText}>Start sleeping!</Text>
+          </TouchableOpacity>
+
+          <Button
+            title="Back to home"
+            color="grey"
+            onPress={() => this.props.navigation.goBack()}
+          />
         </View>
-
-        <View
-          style={[
-            { backgroundColor: content[screenName].backgroundColor },
-            styles.contentContainer
-          ]}
-        >
-          {contentArray
-            ? contentArray.map((item, index) => {
-                const separator =
-                  index !== 0 ? <View style={styles.separator} /> : null;
-                return (
-                  <View key={index}>
-                    {separator}
-                    <Text style={styles.contentText}>
-                      <Text style={{ fontWeight: "bold" }}>{index + 1}.)</Text>{" "}
-                      {item}
-                    </Text>
-                  </View>
-                );
-              })
-            : null}
-        </View>
-
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => this.props.navigation.navigate("Timer")}
-          underlayColor="#fff"
-        >
-          <Text style={styles.buttonText}>Start sleeping!</Text>
-        </TouchableOpacity>
-
-        <Button
-          title="Back to home"
-          onPress={() => this.props.navigation.goBack()}
-        />
       </ScrollView>
     );
   }
@@ -115,7 +120,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 40,
     marginVertical: 20,
     paddingVertical: 10,
-    backgroundColor: "#189972",
+    backgroundColor: "grey",
     borderRadius: 10,
     borderWidth: 1,
     borderColor: "#fff"

@@ -20,7 +20,7 @@ const RootStack = StackNavigator(
     }
   },
   {
-    initialRouteName: "Timer"
+    initialRouteName: "Home"
   }
 );
 

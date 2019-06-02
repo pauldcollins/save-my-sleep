@@ -1,6 +1,6 @@
-import React from 'react';
-import { Button, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { StackNavigator } from 'react-navigation';
+import React from "react";
+import { Button, View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { StackNavigator } from "react-navigation";
 
 class HomeScreen extends React.Component {
   render() {
@@ -9,17 +9,17 @@ class HomeScreen extends React.Component {
         <View style={styles.headerContainer}>
           <Text style={styles.headerText}>SAVE MY SLEEP</Text>
           <Text style={styles.headerSubText}>
-            A set of different exercises{'\n'}to help you get to sleep
+            A set of different exercises{"\n"}to help you get to sleep
           </Text>
         </View>
 
         <TouchableOpacity
-          style={[{ backgroundColor: '#6261FD' }, styles.linkContainer]}
+          style={[{ backgroundColor: "#6261FD" }, styles.linkContainer]}
           onPress={() => {
             /* 1. Navigate to the Details route with params */
-            this.props.navigation.navigate('Details', {
-              itemId: 86,
-              screenName: 'the878Method'
+            this.props.navigation.navigate("Details", {
+              // itemId: 86,
+              screenName: "the878Method"
             });
           }}
         >
@@ -27,44 +27,44 @@ class HomeScreen extends React.Component {
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={[{ backgroundColor: '#fc3768' }, styles.linkContainer]}
+          style={[{ backgroundColor: "#fc3768" }, styles.linkContainer]}
           onPress={() => {
             /* 1. Navigate to the Details route with params */
-            this.props.navigation.navigate('Details', {
+            this.props.navigation.navigate("Details", {
               itemId: 86,
-              otherParam: 'anything you want here'
+              screenName: "progressiveRelaxation"
             });
           }}
         >
           <Text style={styles.linkText}>
-            Progressive relaxation{'\n'}
+            Progressive relaxation{"\n"}
             (contracting muscles)
           </Text>
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={[{ backgroundColor: '#f8982e' }, styles.linkContainer]}
+          style={[{ backgroundColor: "#f8982e" }, styles.linkContainer]}
           onPress={() => {
             /* 1. Navigate to the Details route with params */
-            this.props.navigation.navigate('Details', {
+            this.props.navigation.navigate("Details", {
               itemId: 86,
-              otherParam: 'anything you want here'
+              otherParam: "anything you want here"
             });
           }}
         >
           <Text style={styles.linkText}>
-            Accupressure{'\n'}
+            Accupressure{"\n"}
             (touching in between the head)
           </Text>
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={[{ backgroundColor: '#6fd0f4' }, styles.linkContainer]}
+          style={[{ backgroundColor: "#6fd0f4" }, styles.linkContainer]}
           onPress={() => {
             /* 1. Navigate to the Details route with params */
-            this.props.navigation.navigate('Details', {
+            this.props.navigation.navigate("Details", {
               itemId: 86,
-              otherParam: 'anything you want here'
+              otherParam: "anything you want here"
             });
           }}
         >
@@ -72,12 +72,12 @@ class HomeScreen extends React.Component {
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={[{ backgroundColor: '#35c749' }, styles.linkContainer]}
+          style={[{ backgroundColor: "#35c749" }, styles.linkContainer]}
           onPress={() => {
             /* 1. Navigate to the Details route with params */
-            this.props.navigation.navigate('Details', {
+            this.props.navigation.navigate("Details", {
               itemId: 86,
-              otherParam: 'anything you want here'
+              otherParam: "anything you want here"
             });
           }}
         >
@@ -94,33 +94,33 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     flex: 1.2,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#ffffff',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#ffffff",
     paddingTop: 50,
     paddingBottom: 20
   },
   headerText: {
     fontSize: 30,
-    color: '#545455',
-    textAlign: 'center'
+    color: "#545455",
+    textAlign: "center"
   },
   headerSubText: {
     fontSize: 20,
-    color: '#545455',
-    textAlign: 'center',
+    color: "#545455",
+    textAlign: "center",
     paddingTop: 10,
     paddingHorizontal: 20
   },
   linkContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: "center",
+    alignItems: "center"
   },
   linkText: {
     fontSize: 24,
-    color: '#ffffff',
-    textAlign: 'center'
+    color: "#ffffff",
+    textAlign: "center"
   }
 });
 

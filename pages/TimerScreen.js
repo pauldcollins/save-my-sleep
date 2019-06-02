@@ -7,8 +7,7 @@ import {
   TouchableHighlight,
   Dimensions
 } from "react-native";
-import StopWatch from "./StopWatchComponent";
-import { StackNavigator } from "react-navigation";
+import StopWatch from "./../components/StopWatchComponent";
 
 // content
 import * as content from "./content";

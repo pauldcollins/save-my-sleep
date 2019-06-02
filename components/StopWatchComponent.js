@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { Audio } from "expo";
 
-import * as content from "./content";
+import * as content from "./../pages/content";
 
 const styles = StyleSheet.create({
   container: {
