@@ -57,14 +57,7 @@ class StopWatch extends React.Component {
     this.state = {
       secondsElapsed: 0,
       lastClearedIncrementer: null,
-      steps: {
-        currentStep: "step1",
-        step1: 8,
-        step2: 7,
-        step3: 8,
-        loops: 2,
-        loopsComplete: 0
-      }
+      steps: content[this.props.screenName].steps
     };
     this.incrementer = null;
 
@@ -72,9 +65,6 @@ class StopWatch extends React.Component {
   }
 
   async componentWillMount() {
-    // breathe_in.wav;
-    // breathe_out.wav;
-    // hold_breath.wav;
     this.heartBeat.loadAsync(
       require("./../assets/sounds/the878/heartbeat_single.wav")
     );
@@ -98,29 +88,31 @@ class StopWatch extends React.Component {
       this.handleStopClick();
       steps.loopsComplete = 0;
     } else {
-      if (
-        steps.currentStep === "step1" &&
-        secondsElapsed === this.state.steps.step1
-      ) {
-        steps.currentStep = "step2";
-        this.handleResetClick();
-        this.handleStartClick();
-      } else if (
-        steps.currentStep === "step2" &&
-        secondsElapsed === steps.step2
-      ) {
-        steps.currentStep = "step3";
-        this.handleResetClick();
-        this.handleStartClick();
-      } else if (
-        steps.currentStep === "step3" &&
-        secondsElapsed === steps.step3
-      ) {
-        steps.currentStep = "step1";
-        steps.loopsComplete = steps.loopsComplete + 1;
+      if (steps.currentStep < steps.totalAmountOfSteps) {
+        steps.currentStep += 1;
         this.handleResetClick();
         this.handleStartClick();
       }
+      // if (steps.currentStep === "step1" && secondsElapsed === steps.step1) {
+      //   steps.currentStep = "step2";
+      //   this.handleResetClick();
+      //   this.handleStartClick();
+      // } else if (
+      //   steps.currentStep === "step2" &&
+      //   secondsElapsed === steps.step2
+      // ) {
+      //   steps.currentStep = "step3";
+      //   this.handleResetClick();
+      //   this.handleStartClick();
+      // } else if (
+      //   steps.currentStep === "step3" &&
+      //   secondsElapsed === steps.step3
+      // ) {
+      //   steps.currentStep = "step1";
+      //   steps.loopsComplete = steps.loopsComplete + 1;
+      //   this.handleResetClick();
+      //   this.handleStartClick();
+      // }
     }
   }
 
@@ -139,14 +131,7 @@ class StopWatch extends React.Component {
     this.setState({
       secondsElapsed: 0,
       lastClearedIncrementer: null,
-      steps: {
-        currentStep: "step1",
-        step1: 8,
-        step2: 7,
-        step3: 8,
-        loops: 3,
-        loopsComplete: 0
-      }
+      steps: content[this.props.screenName].steps
     });
   }
 

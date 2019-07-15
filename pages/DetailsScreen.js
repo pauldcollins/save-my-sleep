@@ -57,7 +57,9 @@ class DetailsScreen extends React.Component {
 
           <TouchableOpacity
             style={styles.button}
-            onPress={() => this.props.navigation.navigate("Timer")}
+            onPress={() =>
+              this.props.navigation.navigate("Timer", { screenName })
+            }
             underlayColor="#fff"
           >
             <Text style={styles.buttonText}>Start sleeping!</Text>

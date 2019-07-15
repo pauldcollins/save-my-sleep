@@ -21,9 +21,8 @@ class TimerScreen extends React.Component {
     /* 2. Read the params from the navigation state */
     const { params } = this.props.navigation.state;
     // const itemId = params ? params.itemId : null;
-    // const screenName = params ? params.screenName : null;
-    const screenName = "the878Method";
-    const contentArray = params ? content[screenName].content : null;
+    const screenName = params ? params.screenName : null;
+    // const contentArray = params ? content[screenName].content : null;
 
     return (
       <ScrollView style={styles.container}>
@@ -42,13 +41,13 @@ class TimerScreen extends React.Component {
         >
           <StopWatch
             screenName={screenName}
-            handleGetCurrentTime={this.handleGetCurrentTime}
+            // handleGetCurrentTime={this.handleGetCurrentTime}
           />
         </View>
         <View style={styles.footerContainer}>
           <TouchableHighlight
             style={styles.backButton}
-            onPress={() => this.props.navigation.goBack()}
+            onPress={() => this.props.navigation.pop(2)}
           >
             <Text style={styles.backButtonText}>Back to home</Text>
           </TouchableHighlight>
