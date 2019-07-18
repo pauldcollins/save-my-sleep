@@ -7,7 +7,8 @@ import {
   TouchableHighlight,
   Dimensions
 } from "react-native";
-import StopWatch from "./../components/StopWatchComponent";
+import The878Method from "../components/The878Method";
+import ProgressiveRelaxation from "../components/ProgressiveRelaxation";
 
 // content
 import * as content from "./content";
@@ -23,6 +24,12 @@ class TimerScreen extends React.Component {
     // const itemId = params ? params.itemId : null;
     const screenName = params ? params.screenName : null;
     // const contentArray = params ? content[screenName].content : null;
+    let clockTimer;
+    if (screenName === "the878Method") {
+      clockTimer = <The878Method screenName={screenName} />;
+    } else if (screenName === "progressiveRelaxation") {
+      clockTimer = <ProgressiveRelaxation screenName={screenName} />;
+    }
 
     return (
       <ScrollView style={styles.container}>
@@ -39,10 +46,7 @@ class TimerScreen extends React.Component {
             styles.contentContainer
           ]}
         >
-          <StopWatch
-            screenName={screenName}
-            // handleGetCurrentTime={this.handleGetCurrentTime}
-          />
+          {clockTimer}
         </View>
         <View style={styles.footerContainer}>
           <TouchableHighlight

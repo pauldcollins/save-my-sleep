@@ -1,4 +1,4 @@
-export const the878Method = {
+export const he878Method = {
   backgroundColor: "#6261FD",
   heading: "The 8-7-8 method",
   subHeading:
@@ -9,7 +9,25 @@ export const the878Method = {
     "Hold the breath in for a count of seven seconds, continuing to follow the guide and the sound of the ticks.",
     "Following the guide and the sound of the ticks, slowly exhale by blowing the breath out of your mouth with a wooshing sound to the count of eight seconds. Think of the air being released as through from a deflating balloon.",
     "Repeat the cycle eight times."
-  ]
+  ],
+  // steps: {
+  //   currentStep: 1,
+  //   totalAmountOfSteps: 3,
+  //   step1: 8,
+  //   step2: 7,
+  //   step3: 8,
+  //   loops: 2,
+  //   loopsComplete: 0
+  // }
+  steps: {
+    currentStep: 1,
+    totalAmountOfSteps: 3,
+    step1: 3,
+    step2: 1,
+    step3: 3,
+    loops: 2,
+    loopsComplete: 0
+  }
 };
 
 export const progressiveRelaxation = {
@@ -30,5 +48,27 @@ export const progressiveRelaxation = {
     "Now tense your face by stretching a smiling grimace out as far as you can go. Hold for 5 seconds until you hear the beep.",
     "Relax and breathe for one minute. Think of your whole body relaxing. Tune yourself into your body; feel the mattress supporting you, feel your body heavy.",
     "Repeat as necessary until you feel relaxed."
-  ]
+  ],
+  steps: {
+    currentStep: "step1",
+    step1: 8,
+    step2: 7,
+    step3: 8,
+    loops: 2,
+    loopsComplete: 0
+  }
 };
+
+// breathe in and out, 30 seconds
+// Stretch your toes for 5 seconds
+// Relax and breathe for 30 seconds
+// Stretch your toes and calves for 5 seconds
+// Relax and breathe for 30 seconds
+// Clench your glutes for 5 seconds
+// Relax and breathe for 30 seconds
+// Hold your stomach muscles for 5 seconds
+// Relax and breathe for 30 seconds
+// Stretch your arms and fingers for 5 seconds
+// Relax and breathe for 30 seconds
+// Tense your face by stretching a smile for 5 seconds
+// Relax and breathe for 1 minute, feel the mattress supporting you

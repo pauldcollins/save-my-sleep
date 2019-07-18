@@ -51,13 +51,20 @@ const styles = StyleSheet.create({
 const formattedSeconds = sec =>
   Math.floor(sec / 60) + ":" + ("0" + (sec % 60)).slice(-2);
 
-class StopWatch extends React.Component {
+class The878Method extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       secondsElapsed: 0,
       lastClearedIncrementer: null,
-      steps: content[this.props.screenName].steps
+      steps: {
+        currentStep: "step1",
+        step1: 8,
+        step2: 7,
+        step3: 8,
+        loops: 1,
+        loopsComplete: 0
+      }
     };
     this.incrementer = null;
 
@@ -71,80 +78,49 @@ class StopWatch extends React.Component {
   }
 
   handlePlaySound = async val => {
-    // try {
-    //   await this.heartBeat.setPositionAsync(0);
-    //   await this.heartBeat.playAsync();
-    // } catch (error) {
-    //   console.log("ERROR", error);
-    // }
+    try {
+      await this.heartBeat.setPositionAsync(0);
+      await this.heartBeat.playAsync();
+    } catch (error) {
+      console.log("ERROR", error);
+    }
   };
 
   componentDidUpdate() {
-    const { steps, secondsElapsed } = this.state;
     this.handlePlaySound();
 
     if (
-      steps.loopsComplete === steps.loops &&
-      steps.currentStep === steps.totalAmountOfSteps &&
-      secondsElapsed === steps[`step${steps.currentStep}`]
+      this.state.steps.loopsComplete === this.state.steps.loops &&
+      this.state.steps.currentStep === "step1"
     ) {
-      this.setState({ steps: content[this.props.screenName].steps }, () => {
-        this.handleResetClick();
-        this.handleStopClick();
-      });
-    } else if (
-      secondsElapsed === steps[`step${steps.currentStep}`] &&
-      steps.currentStep === steps.totalAmountOfSteps
-    ) {
-      const stepsCopy = { ...steps };
-      stepsCopy.loopsComplete = steps.loopsComplete + 1;
-      stepsCopy.currentStep = 1;
-      this.setState({ steps: stepsCopy }, () => {
+      this.handleResetClick();
+      this.handleStopClick();
+      this.state.steps.loopsComplete = 0;
+    } else {
+      if (
+        this.state.steps.currentStep === "step1" &&
+        this.state.secondsElapsed === this.state.steps.step1
+      ) {
+        this.state.steps.currentStep = "step2";
         this.handleResetClick();
         this.handleStartClick();
-      });
-      // update current step
-    } else if (secondsElapsed === steps[`step${steps.currentStep}`]) {
-      const stepsCopy = { ...steps };
-      stepsCopy.currentStep += 1;
-      this.setState({ steps: stepsCopy }, () => {
+      } else if (
+        this.state.steps.currentStep === "step2" &&
+        this.state.secondsElapsed === this.state.steps.step2
+      ) {
+        this.state.steps.currentStep = "step3";
         this.handleResetClick();
         this.handleStartClick();
-      });
+      } else if (
+        this.state.steps.currentStep === "step3" &&
+        this.state.secondsElapsed === this.state.steps.step3
+      ) {
+        this.state.steps.currentStep = "step1";
+        this.state.steps.loopsComplete = this.state.steps.loopsComplete + 1;
+        this.handleResetClick();
+        this.handleStartClick();
+      }
     }
-
-    // if (
-    //   steps.loopsComplete === steps.loops &&
-    //   steps.currentStep === steps.totalAmountOfSteps &&
-    //   secondsElapsed === steps[`step${steps.currentStep}`]
-    // ) {
-    //   console.log("IN HERE", this.state);
-    //   this.handleResetClick();
-    //   this.handleStopClick();
-    //   // this.setState({ steps: { loopsComplete: 0 } });
-    // } else {
-    //   // // update loops complete
-    //   if (
-    //     secondsElapsed === steps[`step${steps.currentStep}`] &&
-    //     steps.currentStep === steps.totalAmountOfSteps
-    //   ) {
-    //     const stepsCopy = { ...steps };
-    //     stepsCopy.loopsComplete = steps.loopsComplete + 1;
-    //     stepsCopy.currentStep = 1;
-    //     this.setState({ steps: stepsCopy }, () => {
-    //       this.handleResetClick();
-    //       this.handleStartClick();
-    //     });
-    //     // update current step
-    //   } else if (secondsElapsed === steps[`step${steps.currentStep}`]) {
-    //     const stepsCopy = { ...steps };
-    //     stepsCopy.currentStep += 1;
-    //     this.setState({ steps: stepsCopy }, () => {
-    //       this.handleResetClick();
-    //       this.handleStartClick();
-    //     });
-    //   }
-    // }
   }
 
   handleStartClick() {
@@ -162,7 +138,14 @@ class StopWatch extends React.Component {
     this.setState({
       secondsElapsed: 0,
       lastClearedIncrementer: null,
-      steps: content[this.props.screenName].steps
+      steps: {
+        currentStep: "step1",
+        step1: 8,
+        step2: 7,
+        step3: 8,
+        loops: 2,
+        loopsComplete: 0
+      }
     });
   }
 
@@ -183,9 +166,9 @@ class StopWatch extends React.Component {
             {formattedSeconds(secondsElapsed)}
           </Text>
         </View>
-        {secondsElapsed === 0 &&
-        steps.loopsComplete === 0 &&
-        steps.currentStep === 1 ? (
+        {this.state.secondsElapsed === 0 &&
+        this.state.steps.loopsComplete === 0 &&
+        this.state.steps.currentStep === "step1" ? (
           <TouchableHighlight
             style={[
               styles.button,
@@ -210,4 +193,4 @@ class StopWatch extends React.Component {
   }
 }
 
-export default StopWatch;
+export default The878Method;
