@@ -32,3 +32,19 @@ export const progressiveRelaxation = {
     "Repeat as necessary until you feel relaxed."
   ]
 };
+
+export const accupressure = {
+  backgroundColor: "#f8982e",
+  heading: "Accupressure",
+  subHeading:
+    "Acupressure is a focused relaxation technique based on ancient Chinese medical theory related to the flow of energy through specific points of the active network in your body. Pressure is applied to these points to restore balance in your mind, body, and spirit.",
+  content: [
+    "Find the slight indentation in your forehead between your brows, sitting right above the nose.",
+    "Gently apply pressure to that point for 1 minute following the guide",
+    "Open one hand. Place your thumb from your other hand on the wrist crease line of the open hand, in line with the space between your fourth and fifth fingers. Your thumb should sit between  the outer bone and soft tendon.",
+    "Apply a gentle pressure for two minutes following the guide, then release.",
+    "You will find a depression for the small intestine meridian just below the pinky finger on the outer edge of your hand.",
+    "Apply a gentle pressure for a two minutes following the guide and the beep, then release.",
+    "Repeat these three pressure points until you feel relaxed."
+  ]
+};

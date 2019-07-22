@@ -18,7 +18,6 @@ class HomeScreen extends React.Component {
           onPress={() => {
             /* 1. Navigate to the Details route with params */
             this.props.navigation.navigate("Details", {
-              // itemId: 86,
               screenName: "the878Method"
             });
           }}
@@ -31,7 +30,6 @@ class HomeScreen extends React.Component {
           onPress={() => {
             /* 1. Navigate to the Details route with params */
             this.props.navigation.navigate("Details", {
-              itemId: 86,
               screenName: "progressiveRelaxation"
             });
           }}
@@ -47,8 +45,7 @@ class HomeScreen extends React.Component {
           onPress={() => {
             /* 1. Navigate to the Details route with params */
             this.props.navigation.navigate("Details", {
-              itemId: 86,
-              otherParam: "anything you want here"
+              screenName: "accupressure"
             });
           }}
         >

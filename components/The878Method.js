@@ -1,52 +1,9 @@
-import React, { Component } from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  TouchableHighlight,
-  Dimensions
-} from "react-native";
+import React from "react";
+import { Text, View, TouchableHighlight } from "react-native";
 import { Audio } from "expo";
 
 import * as content from "./../pages/content";
-
-const styles = StyleSheet.create({
-  container: {
-    paddingVertical: 20
-  },
-  timer: {
-    borderRadius:
-      Math.round(
-        Dimensions.get("window").width + Dimensions.get("window").height
-      ) / 2,
-    width: Dimensions.get("window").width * 0.5,
-    height: Dimensions.get("window").width * 0.5,
-    backgroundColor: "white",
-    justifyContent: "center",
-    alignItems: "center",
-    alignSelf: "center"
-  },
-  timerText: {
-    fontSize: 40,
-    color: "#545455"
-  },
-  button: {
-    alignSelf: "center",
-    width: Dimensions.get("window").width * 0.5,
-    marginTop: 20,
-    paddingVertical: 10,
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: "#fff"
-  },
-  buttonText: {
-    color: "white",
-    textAlign: "center",
-    paddingLeft: 10,
-    paddingRight: 10,
-    fontSize: 20
-  }
-});
+import styles from "./../constants/styles";
 
 const formattedSeconds = sec =>
   Math.floor(sec / 60) + ":" + ("0" + (sec % 60)).slice(-2);
