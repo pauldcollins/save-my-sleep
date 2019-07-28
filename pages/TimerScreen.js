@@ -9,6 +9,9 @@ import {
 } from "react-native";
 import The878Method from "../components/The878Method";
 import ProgressiveRelaxation from "../components/ProgressiveRelaxation";
+import Accupressure from "../components/Accupressure";
+import CountingBackwards from "../components/CountingBackwards";
+import LeftNostrilBreathing from "../components/LeftNostrilBreathing";
 
 // content
 import * as content from "./content";
@@ -29,6 +32,12 @@ class TimerScreen extends React.Component {
       clockTimer = <The878Method screenName={screenName} />;
     } else if (screenName === "progressiveRelaxation") {
       clockTimer = <ProgressiveRelaxation screenName={screenName} />;
+    } else if (screenName === "accupressure") {
+      clockTimer = <Accupressure screenName={screenName} />;
+    } else if (screenName === "countingBackwards") {
+      clockTimer = <CountingBackwards screenName={screenName} />;
+    } else if (screenName === "leftNostrilBreathing") {
+      clockTimer = <LeftNostrilBreathing screenName={screenName} />;
     }
 
     return (

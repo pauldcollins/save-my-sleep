@@ -60,12 +60,11 @@ class HomeScreen extends React.Component {
           onPress={() => {
             /* 1. Navigate to the Details route with params */
             this.props.navigation.navigate("Details", {
-              itemId: 86,
-              otherParam: "anything you want here"
+              screenName: "countingBackwards"
             });
           }}
         >
-          <Text style={styles.linkText}>Squeeze and relax</Text>
+          <Text style={styles.linkText}>Counting backwards</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -73,8 +72,7 @@ class HomeScreen extends React.Component {
           onPress={() => {
             /* 1. Navigate to the Details route with params */
             this.props.navigation.navigate("Details", {
-              itemId: 86,
-              otherParam: "anything you want here"
+              screenName: "leftNostrilBreathing"
             });
           }}
         >

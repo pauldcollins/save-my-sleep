@@ -19,7 +19,7 @@ class The878Method extends React.Component {
         step1: 8,
         step2: 7,
         step3: 8,
-        loops: 1,
+        loops: 2,
         loopsComplete: 0
       }
     };
@@ -29,9 +29,7 @@ class The878Method extends React.Component {
   }
 
   async componentWillMount() {
-    this.heartBeat.loadAsync(
-      require("./../assets/sounds/the878/heartbeat_single.wav")
-    );
+    this.heartBeat.loadAsync(require("./../assets/sounds/The878.wav"));
   }
 
   handlePlaySound = async val => {
@@ -43,9 +41,16 @@ class The878Method extends React.Component {
     }
   };
 
-  componentDidUpdate() {
-    this.handlePlaySound();
+  handleStopSound = async val => {
+    try {
+      await this.heartBeat.setPositionAsync(0);
+      await this.heartBeat.stopAsync();
+    } catch (error) {
+      console.log("ERROR", error);
+    }
+  };
 
+  componentDidUpdate() {
     if (
       this.state.steps.loopsComplete === this.state.steps.loops &&
       this.state.steps.currentStep === "step1"
@@ -81,6 +86,14 @@ class The878Method extends React.Component {
   }
 
   handleStartClick() {
+    if (
+      this.state.steps.currentStep === "step1" &&
+      (this.state.secondsElapsed === 0 ||
+        this.state.secondsElapsed === this.state.steps.step3)
+    ) {
+      this.handlePlaySound();
+    }
+
     this.incrementer = setInterval(
       () =>
         this.setState({
@@ -91,6 +104,7 @@ class The878Method extends React.Component {
   }
 
   handleStopClick() {
+    this.handleStopSound();
     clearInterval(this.incrementer);
     this.setState({
       secondsElapsed: 0,

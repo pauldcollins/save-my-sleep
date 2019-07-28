@@ -53,7 +53,7 @@ class The878Method extends React.Component {
 
   async componentWillMount() {
     this.heartBeat.loadAsync(
-      require("./../assets/sounds/the878/heartbeat_single.wav")
+      require("./../assets/sounds/ProgressiveRelaxation.wav")
     );
   }
 
@@ -66,9 +66,16 @@ class The878Method extends React.Component {
     }
   };
 
-  componentDidUpdate() {
-    this.handlePlaySound();
+  handleStopSound = async val => {
+    try {
+      await this.heartBeat.setPositionAsync(0);
+      await this.heartBeat.stopAsync();
+    } catch (error) {
+      console.log("ERROR", error);
+    }
+  };
 
+  componentDidUpdate() {
     if (
       this.state.steps.loopsComplete === this.state.steps.loops &&
       this.state.steps.currentStep === "step1"
@@ -174,6 +181,15 @@ class The878Method extends React.Component {
   }
 
   handleStartClick() {
+    if (
+      this.state.steps.currentStep === "step1" &&
+      (this.state.secondsElapsed === 0 ||
+        this.state.secondsElapsed === this.state.steps.step13)
+    ) {
+      console.log("IN HERE");
+      this.handlePlaySound();
+    }
+
     this.incrementer = setInterval(
       () =>
         this.setState({
@@ -184,6 +200,7 @@ class The878Method extends React.Component {
   }
 
   handleStopClick() {
+    this.handleStopSound();
     clearInterval(this.incrementer);
     this.setState({
       secondsElapsed: 0,
