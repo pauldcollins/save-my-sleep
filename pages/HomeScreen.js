@@ -1,13 +1,12 @@
 import React from "react";
-import { Button, View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { StackNavigator } from "react-navigation";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.headerContainer}>
-          <Text style={styles.headerText}>SAVE MY SLEEP</Text>
+          <Text style={styles.headerText}>The Sleep App</Text>
           <Text style={styles.headerSubText}>
             A set of different exercises{"\n"}to help you get to sleep
           </Text>
@@ -96,7 +95,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20
   },
   headerText: {
-    fontSize: 30,
+    fontSize: 40,
     color: "#545455",
     textAlign: "center"
   },

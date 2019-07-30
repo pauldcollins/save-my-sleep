@@ -1,5 +1,15 @@
 {
   "expo": {
-    "sdkVersion": "32.0.0"
+    "name": "The Sleep App",
+    "icon": "./assets/images/iTunesIcon.png",
+    "version": "0.0.1",
+    "slug": "the-sleep-app",
+    "sdkVersion": "32.0.0",
+    "ios": {
+      "bundleIdentifier": "com.noisie.thesleepapp"
+    },
+    "android": {
+      "package": "com.noisie.thesleepapp"
+    }
   }
 }
