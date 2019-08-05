@@ -28,11 +28,30 @@ class Accupressure extends React.Component {
     };
     this.incrementer = null;
 
-    this.heartBeat = new Audio.Sound();
+    // this.heartBeat = new Audio.Sound();
   }
 
   async componentWillMount() {
     this.heartBeat.loadAsync(require("./../assets/sounds/Accupressure.wav"));
+  }
+
+  async componentDidMount() {
+    await Audio.setAudioModeAsync({
+      playsInSilentModeIOS: true,
+      allowsRecordingIOS: false,
+      interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_MIX_WITH_OTHERS,
+      shouldDuckAndroid: false,
+      interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
+      playThroughEarpieceAndroid: true
+    });
+    await Audio.setIsEnabledAsync(true);
+    this.heartBeat = new Audio.Sound();
+    await this.heartBeat.loadAsync(
+      require("./../assets/sounds/Accupressure.wav")
+    );
+    this.heartBeat.playAsync();
+    this.heartBeat.setIsMutedAsync(true);
+    this.heartBeat.setIsLoopingAsync(true);
   }
 
   handlePlaySound = async val => {

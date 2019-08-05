@@ -1,8 +1,7 @@
 {
   "expo": {
     "name": "The Sleep App",
-    "icon": "./assets/images/iTunesIcon.png",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "slug": "the-sleep-app",
     "sdkVersion": "32.0.0",
     "ios": {

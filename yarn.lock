@@ -735,11 +735,21 @@ ajv-errors@^1.0.0:
   integrity sha512-DCRfO/4nQ+89p/RK43i8Ezd41EqdGIU4ld7nGF8OQ14oc/we5rEntLCUa7+jrn3nn83BosfwZA0wb4pon2o8iQ==
 
 ajv-keywords@^3.1.0:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/ajv-keywords/-/ajv-keywords-3.4.0.tgz#4b831e7b531415a7cc518cd404e73f6193c6349d"
-  integrity sha512-aUjdRFISbuFOl0EIZc+9e4FfZp0bDZgAdOOf30bJmw8VM9v84SHyVyxDfbWxpGYbdZD/9XoKxfHVNmxPkhwyGw==
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/ajv-keywords/-/ajv-keywords-3.4.1.tgz#ef916e271c64ac12171fd8384eaae6b2345854da"
+  integrity sha512-RO1ibKvd27e6FEShVFfPALuHI3WjSVNeK5FIsmme/LYRNxjKuNj+Dt7bucLa6NdSv3JcVTyMlm9kGR84z1XpaQ==
 
-ajv@^6.1.0, ajv@^6.5.5:
+ajv@^6.1.0:
+  version "6.10.2"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.10.2.tgz#d3cea04d6b017b2894ad69040fec8b623eb4bd52"
+  integrity sha512-TXtUUEYHuaTEbLZWIKUr5pmBuhDLy+8KYtPYdcV8qC+pOZL+NKqYwvWSRrVXHn+ZmRRAu8vJTAznH7Oag6RVRw==
+  dependencies:
+    fast-deep-equal "^2.0.1"
+    fast-json-stable-stringify "^2.0.0"
+    json-schema-traverse "^0.4.1"
+    uri-js "^4.2.2"
+
+ajv@^6.5.5:
   version "6.9.2"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.9.2.tgz#4927adb83e7f48e5a32b45729744c71ec39c9c7b"
   integrity sha512-4UFy0/LgDo7Oa/+wOAlj44tp9K78u38E5/359eSrqEp1Z5PdVfimCcs7SluXMP755RUQu6d2b4AvF0R1C9RZjg==
@@ -2447,9 +2457,9 @@ expo-contacts@~2.0.0:
     uuid-js "^0.7.5"
 
 expo-core@~2.0.0:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/expo-core/-/expo-core-2.0.1.tgz#b7437761adc40ac7689043327c287b6413d0fabd"
-  integrity sha512-BmQqSHThhnI2xSEWFm4J0uQv5iATwLcY2A0pArjUOT+JK0h2V3x2lt0EZFekjrKwZwIPOwyEYFO1Drzn41Oxsg==
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/expo-core/-/expo-core-2.0.2.tgz#61e1e5cc6c4341a834a0d7f37c68887cee8d971f"
+  integrity sha512-QKkICJ06m/J1PxTJqtVu03+fUXwjLqb2YPF5J9DT7W4EknPq1sHY3ZKJgAr1PhK24fzvVoxWOKqiIstliZdBOA==
 
 expo-errors@~1.0.0:
   version "1.0.0"
@@ -4310,7 +4320,12 @@ lodash.zipobject@^4.1.3:
   resolved "https://registry.yarnpkg.com/lodash.zipobject/-/lodash.zipobject-4.1.3.tgz#b399f5aba8ff62a746f6979bf20b214f964dbef8"
   integrity sha1-s5n1q6j/YqdG9peb8gshT5ZNvvg=
 
-lodash@^4.0.0, lodash@^4.16.6, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0, lodash@^4.6.1:
+lodash@^4.0.0, lodash@^4.16.6:
+  version "4.17.15"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
+  integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
+
+lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0, lodash@^4.6.1:
   version "4.17.11"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
   integrity sha512-cQKh8igo5QUhZ7lg38DYWAxMvjSAKG0A8wGSVimP07SIUEK2UO+arSRKbRZWtelMtN5V0Hkwh5ryOto/SshYIg==
@@ -4323,9 +4338,9 @@ loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.3.1, loose-envify@^1.4
     js-tokens "^3.0.0 || ^4.0.0"
 
 lottie-ios@^2.5.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/lottie-ios/-/lottie-ios-2.5.0.tgz#55c808e785d4a6933b0c10b395530b17098b05de"
-  integrity sha1-VcgI54XUppM7DBCzlVMLFwmLBd4=
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/lottie-ios/-/lottie-ios-2.5.3.tgz#bff86b6662f9259439535d1548894c274c9e476f"
+  integrity sha512-oBtLkPJ4JkaUqUTOsmFPbSK2/fW6iBezcH5UKBgODaGMpZXCjogArXcvmG7KRNEnPiYMhgqSCKd8tDyDrwQp7Q==
 
 lottie-react-native@2.5.0:
   version "2.5.0"
@@ -4699,9 +4714,9 @@ mime@^1.3.4:
   integrity sha512-x0Vn8spI+wuJ1O6S7gnbaQg8Pxh4NNHb7KSINmEWKiPE4RKOplvijn+NkmYmmRgP68mc70j2EbeTFRsrswaQeg==
 
 mime@^2.0.3:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/mime/-/mime-2.4.0.tgz#e051fd881358585f3279df333fe694da0bcffdd6"
-  integrity sha512-ikBcWwyqXQSHKtciCcctu9YfPbFYZ4+gbHEmE0Q8jzcTYQg5dHCr3g2wwAZjPoJfQVXZq6KXAjpXOTf5/cjT7w==
+  version "2.4.4"
+  resolved "https://registry.yarnpkg.com/mime/-/mime-2.4.4.tgz#bd7b91135fc6b01cde3e9bae33d659b63d8857e5"
+  integrity sha512-LRxmNwziLPT828z+4YkNzloCFC2YM4wrB99k+AV5ZbEyfGNWfG8SO1FUXLmLDBSo89NrJZ4DIWeLjy1CHGhMGA==
 
 mimic-fn@^1.0.0:
   version "1.2.0"
@@ -4768,9 +4783,9 @@ mkdirp@^0.5.0, mkdirp@^0.5.1:
     minimist "0.0.8"
 
 moment-timezone@^0.5.23:
-  version "0.5.23"
-  resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.23.tgz#7cbb00db2c14c71b19303cb47b0fb0a6d8651463"
-  integrity sha512-WHFH85DkCfiNMDX5D3X7hpNH3/PUhjTGcD0U1SgfBGZxJ3qUmJh5FdvaFjcClxOvB3rzdfj4oRffbI38jEnC1w==
+  version "0.5.26"
+  resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.26.tgz#c0267ca09ae84631aa3dc33f65bedbe6e8e0d772"
+  integrity sha512-sFP4cgEKTCymBBKgoxZjYzlSovC20Y6J7y3nanDc5RoBIXKlZhoYwBoZGe3flwU6A372AcRwScH8KiwV6zjy1g==
   dependencies:
     moment ">= 2.9.0"
 
@@ -5509,9 +5524,9 @@ react-native-drawer-layout@1.3.2:
     react-native-dismiss-keyboard "1.0.0"
 
 react-native-gesture-handler@~1.0.14:
-  version "1.0.16"
-  resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.0.16.tgz#bee54981575e581857c2298e133ce2ffac240a3e"
-  integrity sha512-KhUjDaiGKESfVa/lywuYfdZ2pomPC4q/dRQo18qlSZuRxEiOCxzSo9Q1TV7JK3PpyyMEXpsU04kYSSVypWiSxg==
+  version "1.0.17"
+  resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.0.17.tgz#a046f371f277092157fc2781323d35a02a93daaf"
+  integrity sha512-0czy7SZvF4q2aCQUGFaBu/yBjYYEbcqSU1/r2bZ/IoXj+DgYuIPBL60SSXhJdYJU8G3brfUHmtgSdcNte8Lh0w==
   dependencies:
     hoist-non-react-statics "^2.3.1"
     invariant "^2.2.2"
@@ -5545,6 +5560,11 @@ react-native-screens@1.0.0-alpha.22:
   resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-1.0.0-alpha.22.tgz#7a120377b52aa9bbb94d0b8541a014026be9289b"
   integrity sha512-kSyAt0AeVU6N7ZonfV6dP6iZF8B7Bce+tk3eujXhzBGsLg0VSLnU7uE9VqJF0xdQrHR91ZjGgVMieo/8df9KTA==
 
+react-native-sound@^0.10.12:
+  version "0.10.12"
+  resolved "https://registry.yarnpkg.com/react-native-sound/-/react-native-sound-0.10.12.tgz#f912d6f9d6e9e2b42b391e0226787628d940f01a"
+  integrity sha512-lhvzZ+ekNSHW9s4FjmxxGAQmd7yDT9FnHgJNP824cMyHRrTES/LgHnSOxES/1FWVoaQ8FdfbEHkWd2rN0G/L9A==
+
 react-native-stopwatch-timer@0.0.20:
   version "0.0.20"
   resolved "https://registry.yarnpkg.com/react-native-stopwatch-timer/-/react-native-stopwatch-timer-0.0.20.tgz#1badeb3b0d8d5ff02003d38d018c6a2b17fba00b"
@@ -5561,7 +5581,7 @@ react-native-svg@8.0.10:
 
 "react-native-tab-view@github:react-navigation/react-native-tab-view":
   version "0.0.74"
-  resolved "https://codeload.github.com/react-navigation/react-native-tab-view/tar.gz/36ebd834d78b841fc19778c966465d02fd1213bb"
+  resolved "https://codeload.github.com/react-navigation/react-native-tab-view/tar.gz/d87a5cb3ddbcb9e5ea1651450f6c12a7f41355df"
   dependencies:
     prop-types "^15.6.0"
 
@@ -6295,9 +6315,11 @@ stack-utils@^1.0.1:
   integrity sha512-MTX+MeG5U994cazkjd/9KNAapsHnibjMLnfXodlkXw76JEea0UiNzrqidzo1emMwk7w5Qhc9jd4Bn9TBb1MFwA==
 
 stacktrace-parser@^0.1.3:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/stacktrace-parser/-/stacktrace-parser-0.1.4.tgz#01397922e5f62ecf30845522c95c4fe1d25e7d4e"
-  integrity sha1-ATl5IuX2Ls8whFUiyVxP4dJefU4=
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/stacktrace-parser/-/stacktrace-parser-0.1.6.tgz#c17d466d15ba51bee2f753d064f17327a886ff37"
+  integrity sha512-wXhu0Z8YgCGigUtHQq+J7pjXCppk3Um5DwH4qskOKHMlJmKwuuUSm+wDAgU7t4sbVjvuDTNGwOfFKgjMEqSflA==
+  dependencies:
+    type-fest "^0.3.0"
 
 static-extend@^0.1.1:
   version "0.1.2"
@@ -6578,6 +6600,11 @@ type-check@~0.3.2:
   dependencies:
     prelude-ls "~1.1.2"
 
+type-fest@^0.3.0:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.3.1.tgz#63d00d204e059474fe5e1b7c011112bbd1dc29e1"
+  integrity sha512-cUGJnCdr4STbePCgqNFbpVNCepa+kAVohJs1sLhxzdH+gnEoOd8VhbYa7pD3zZYGiURWM2xzEII3fQcRizDkYQ==
+
 typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
@@ -6678,9 +6705,9 @@ urix@^0.1.0:
   integrity sha1-2pN/emLiH+wf0Y1Js1wpNQZ6bHI=
 
 url-join@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/url-join/-/url-join-4.0.0.tgz#4d3340e807d3773bda9991f8305acdcc2a665d2a"
-  integrity sha1-TTNA6AfTdzvamZH4MFrNzCpmXSo=
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/url-join/-/url-join-4.0.1.tgz#b642e21a2646808ffa178c4c5fda39844e12cde7"
+  integrity sha512-jk1+QP6ZJqyOiuEI9AEWQfju/nB2Pw466kbA0LEZljHwKeMgd9WrAEgEGxjPDD2+TNbbb37rTyhEfrCXfuKXnA==
 
 url-loader@^1.1.2:
   version "1.1.2"
