@@ -180,6 +180,10 @@ class The878Method extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.handleStopSound();
+  }
+
   handleStartClick() {
     if (
       this.state.steps.currentStep === "step1" &&

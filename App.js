@@ -1,5 +1,4 @@
 import React from "react";
-import { Button, View, Text, StyleSheet } from "react-native";
 import { StackNavigator } from "react-navigation";
 
 // PAGES
@@ -10,7 +9,10 @@ import TimerScreen from "./pages/TimerScreen";
 const RootStack = StackNavigator(
   {
     Home: {
-      screen: HomeScreen
+      screen: HomeScreen,
+      navigationOptions: {
+        header: null
+      }
     },
     Details: {
       screen: DetailsScreen

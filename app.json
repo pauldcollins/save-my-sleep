@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "The Sleep App",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "slug": "the-sleep-app",
     "sdkVersion": "32.0.0",
     "ios": {
@@ -9,6 +9,7 @@
     },
     "android": {
       "package": "com.noisie.thesleepapp"
-    }
+    },
+    "assetBundlePatterns": ["**/*"]
   }
 }

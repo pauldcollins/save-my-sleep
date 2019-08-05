@@ -7,7 +7,7 @@ import {
   ScrollView,
   TouchableOpacity
 } from "react-native";
-import { StackNavigator } from "react-navigation";
+// import { StackNavigator } from "react-navigation";
 
 // content
 import * as content from "./content";
