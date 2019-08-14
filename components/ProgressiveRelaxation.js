@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, View, TouchableHighlight } from "react-native";
-import { Audio } from "expo";
+import { Audio } from "expo-av";
 
 import * as content from "./../pages/content";
 import styles from "./../constants/styles";
@@ -52,9 +52,7 @@ class The878Method extends React.Component {
   }
 
   async componentWillMount() {
-    this.heartBeat.loadAsync(
-      require("./../assets/sounds/ProgressiveRelaxation.wav")
-    );
+    this.heartBeat.loadAsync(require("./ProgressiveRelaxation.mp3"));
   }
 
   handlePlaySound = async val => {

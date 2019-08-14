@@ -1,4 +1,5 @@
 import React from "react";
+import { Asset } from "expo";
 import {
   Button,
   View,
@@ -7,7 +8,7 @@ import {
   ScrollView,
   TouchableOpacity
 } from "react-native";
-// import { StackNavigator } from "react-navigation";
+// import { createStackNavigator } from "react-navigation";
 
 // content
 import * as content from "./content";

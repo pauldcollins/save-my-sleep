@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, View, TouchableHighlight } from "react-native";
-import { Audio } from "expo";
+import { Audio } from "expo-av";
 
 import * as content from "./../pages/content";
 import styles from "./../constants/styles";
@@ -46,9 +46,7 @@ class Accupressure extends React.Component {
     });
     await Audio.setIsEnabledAsync(true);
     // this.heartBeat = new Audio.Sound();
-    await this.heartBeat.loadAsync(
-      require("./../assets/sounds/Accupressure.wav")
-    );
+    await this.heartBeat.loadAsync(require("./Accupressure.mp3"));
     // this.heartBeat.playAsync();
     // this.heartBeat.setIsMutedAsync(true);
     // this.heartBeat.setIsLoopingAsync(true);
