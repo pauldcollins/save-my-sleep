@@ -24,12 +24,22 @@ class The878Method extends React.Component {
       }
     };
     this.incrementer = null;
-
-    this.heartBeat = new Audio.Sound();
   }
 
   async componentWillMount() {
+    this.heartBeat = new Audio.Sound();
     this.heartBeat.loadAsync(require("./LeftNostrilBreathing.mp3"));
+
+    await Audio.setAudioModeAsync({
+      playsInSilentModeIOS: true,
+      allowsRecordingIOS: false,
+      interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_MIX_WITH_OTHERS,
+      shouldDuckAndroid: false,
+      interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
+      playThroughEarpieceAndroid: true
+    });
+    await Audio.setIsEnabledAsync(true);
+    await this.heartBeat.setPositionAsync(0);
   }
 
   handlePlaySound = async val => {

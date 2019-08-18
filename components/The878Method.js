@@ -24,18 +24,29 @@ class The878Method extends React.Component {
       }
     };
     this.incrementer = null;
-
-    this.heartBeat = new Audio.Sound();
   }
 
   async componentWillMount() {
+    this.heartBeat = new Audio.Sound();
     this.heartBeat.loadAsync(require("./The878.mp3"));
+
+    await Audio.setAudioModeAsync({
+      playsInSilentModeIOS: true,
+      allowsRecordingIOS: false,
+      interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_MIX_WITH_OTHERS,
+      shouldDuckAndroid: false,
+      interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
+      playThroughEarpieceAndroid: true
+    });
+    await Audio.setIsEnabledAsync(true);
+    await this.heartBeat.setPositionAsync(0);
   }
 
-  handlePlaySound = async val => {
+  handlePlaySound = async () => {
     try {
       await this.heartBeat.setPositionAsync(0);
       await this.heartBeat.playAsync();
+      console.log("HERE ALSO");
     } catch (error) {
       console.log("ERROR", error);
     }
@@ -95,6 +106,7 @@ class The878Method extends React.Component {
       (this.state.secondsElapsed === 0 ||
         this.state.secondsElapsed === this.state.steps.step3)
     ) {
+      console.log("CLICKED", this.handlePlaySound);
       this.handlePlaySound();
     }
 

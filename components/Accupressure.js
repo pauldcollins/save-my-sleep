@@ -27,15 +27,12 @@ class Accupressure extends React.Component {
       }
     };
     this.incrementer = null;
-
-    this.heartBeat = new Audio.Sound();
   }
 
-  // async componentWillMount() {
-  //   this.heartBeat.loadAsync(require("./../assets/sounds/Accupressure.wav"));
-  // }
-
   async componentWillMount() {
+    this.heartBeat = new Audio.Sound();
+    this.heartBeat.loadAsync(require("./Accupressure.mp3"));
+
     await Audio.setAudioModeAsync({
       playsInSilentModeIOS: true,
       allowsRecordingIOS: false,
@@ -45,11 +42,7 @@ class Accupressure extends React.Component {
       playThroughEarpieceAndroid: true
     });
     await Audio.setIsEnabledAsync(true);
-    // this.heartBeat = new Audio.Sound();
-    await this.heartBeat.loadAsync(require("./Accupressure.mp3"));
-    // this.heartBeat.playAsync();
-    // this.heartBeat.setIsMutedAsync(true);
-    // this.heartBeat.setIsLoopingAsync(true);
+    await this.heartBeat.setPositionAsync(0);
   }
 
   handlePlaySound = async () => {
