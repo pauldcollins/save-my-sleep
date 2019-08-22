@@ -39,7 +39,8 @@ class Accupressure extends React.Component {
       interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_MIX_WITH_OTHERS,
       shouldDuckAndroid: false,
       interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
-      playThroughEarpieceAndroid: true
+      playThroughEarpieceAndroid: true,
+      staysActiveInBackground: true
     });
     await Audio.setIsEnabledAsync(true);
     await this.heartBeat.setPositionAsync(0);
@@ -112,6 +113,7 @@ class Accupressure extends React.Component {
 
   componentWillUnmount() {
     this.handleStopSound();
+    this.heartBeat.unloadAsync();
   }
 
   handleStartClick() {

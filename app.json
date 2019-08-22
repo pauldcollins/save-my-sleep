@@ -5,7 +5,10 @@
     "slug": "the-sleep-app",
     "sdkVersion": "34.0.0",
     "ios": {
-      "bundleIdentifier": "com.noisie.thesleepapp"
+      "bundleIdentifier": "com.noisie.thesleepapp",
+      "infoPlist": {
+        "UIBackgroundModes": ["audio"]
+      }
     },
     "android": {
       "package": "com.noisie.thesleepapp"
