@@ -1,5 +1,4 @@
 import React from "react";
-import { Asset } from "expo";
 import {
   Button,
   View,
@@ -75,6 +74,21 @@ class DetailsScreen extends React.Component {
       </ScrollView>
     );
   }
+
+  static navigationOptions = ({ navigation }) => {
+    return {
+      headerRight: (
+        <Button
+          onPress={() =>
+            navigation.navigate("Timer", {
+              screenName: navigation.state.params.screenName
+            })
+          }
+          title="Start "
+        />
+      )
+    };
+  };
 }
 
 const styles = StyleSheet.create({

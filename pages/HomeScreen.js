@@ -12,17 +12,38 @@ class HomeScreen extends React.Component {
           </Text>
         </View>
 
-        <TouchableOpacity
+        <View style={[{ backgroundColor: "#6261FD" }, styles.linkContainer]}>
+          <Text style={styles.linkText}>The 8-7-8 method</Text>
+          <TouchableOpacity
+            onPress={() => {
+              this.props.navigation.navigate("Details", {
+                screenName: "the878Method"
+              });
+            }}
+          >
+            <Text style={styles.linkText}>View details</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              this.props.navigation.navigate("Details", {
+                screenName: "the878Method"
+              });
+            }}
+          >
+            <Text style={styles.linkText}>Play Audio</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* <TouchableOpacity
           style={[{ backgroundColor: "#6261FD" }, styles.linkContainer]}
           onPress={() => {
-            /* 1. Navigate to the Details route with params */
             this.props.navigation.navigate("Details", {
               screenName: "the878Method"
             });
           }}
         >
           <Text style={styles.linkText}>The 8-7-8 method</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
         <TouchableOpacity
           style={[{ backgroundColor: "#fc3768" }, styles.linkContainer]}

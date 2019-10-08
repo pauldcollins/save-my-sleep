@@ -19,7 +19,7 @@ class The878Method extends React.Component {
         step1: 8,
         step2: 7,
         step3: 8,
-        loops: 2,
+        loops: 10,
         loopsComplete: 0
       }
     };
