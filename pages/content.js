@@ -14,7 +14,7 @@ export const the878Method = {
 
 export const progressiveRelaxation = {
   backgroundColor: "#fc3768",
-  heading: "Progressive relaxation",
+  heading: "Progressive relaxation (contracting muscles)",
   subHeading:
     "Progressive relaxation can help to calm your heart rate and blood pressure which aids in the reduction of stress.",
   content: [
@@ -35,7 +35,7 @@ export const progressiveRelaxation = {
 
 export const accupressure = {
   backgroundColor: "#f8982e",
-  heading: "Accupressure",
+  heading: "Accupressure\n(touching points in between the head)",
   subHeading:
     "Acupressure is a focused relaxation technique based on ancient Chinese medical theory related to the flow of energy through specific points of the active network in your body.",
   content: [
