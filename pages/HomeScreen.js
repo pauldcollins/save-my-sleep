@@ -1,6 +1,8 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
+import HomeButton from "../components/HomeButton";
+
 const styles = StyleSheet.create({
   container: {
     flex: 1
@@ -24,29 +26,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
     paddingTop: 10,
     paddingHorizontal: 20
-  },
-  linkContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  titleText: {
-    fontSize: 26,
-    color: "#ffffff",
-    textAlign: "center"
-  },
-  linkArea: {
-    flexDirection: "row",
-    marginTop: 5
-  },
-  linkText: {
-    fontSize: 18,
-    color: "#ffffff",
-    textAlign: "center",
-    paddingHorizontal: 10
-  },
-  subText: {
-    fontSize: 18
   }
 });
 
@@ -61,186 +40,30 @@ class HomeScreen extends React.Component {
           </Text>
         </View>
 
-        {/* <TouchableOpacity
-          style={[{ backgroundColor: "#6261FD" }, styles.linkContainer]}
-          onPress={() => {
-            this.props.navigation.navigate("Details", {
-              screenName: "the878Method"
-            });
-          }}
-        >
-          <Text style={styles.linkText}>The 8-7-8 method</Text>
-        </TouchableOpacity> */}
+        <HomeButton
+          navigation={this.props.navigation}
+          screenName="the878Method"
+        />
 
-        <View style={[{ backgroundColor: "#6261FD" }, styles.linkContainer]}>
-          <Text style={styles.titleText}>The 8-7-8 method</Text>
-          <View style={styles.linkArea}>
-            <TouchableOpacity
-              onPress={() => {
-                this.props.navigation.navigate("Details", {
-                  screenName: "the878Method"
-                });
-              }}
-            >
-              <Text style={styles.linkText}>View details</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => {
-                this.props.navigation.navigate("Details", {
-                  screenName: "the878Method"
-                });
-              }}
-            >
-              <Text style={styles.linkText}>Play Audio</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
+        <HomeButton
+          navigation={this.props.navigation}
+          screenName="progressiveRelaxation"
+        />
 
-        {/* <TouchableOpacity
-          style={[{ backgroundColor: "#fc3768" }, styles.linkContainer]}
-          onPress={() => {
-            this.props.navigation.navigate("Details", {
-              screenName: "progressiveRelaxation"
-            });
-          }}
-        >
-          <Text style={styles.linkText}>
-            Progressive relaxation{"\n"}
-            (contracting muscles)
-          </Text>
-        </TouchableOpacity> */}
+        <HomeButton
+          navigation={this.props.navigation}
+          screenName="accupressure"
+        />
 
-        <View style={[{ backgroundColor: "#fc3768" }, styles.linkContainer]}>
-          <Text style={styles.titleText}>Progressive relaxation</Text>
-          <View style={styles.linkArea}>
-            <TouchableOpacity
-              onPress={() => {
-                this.props.navigation.navigate("Details", {
-                  screenName: "progressiveRelaxation"
-                });
-              }}
-            >
-              <Text style={styles.linkText}>View details</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => {
-                this.props.navigation.navigate("Details", {
-                  screenName: "progressiveRelaxation"
-                });
-              }}
-            >
-              <Text style={styles.linkText}>Play Audio</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
+        <HomeButton
+          navigation={this.props.navigation}
+          screenName="countingBackwards"
+        />
 
-        {/* <TouchableOpacity
-          style={[{ backgroundColor: "#f8982e" }, styles.linkContainer]}
-          onPress={() => {
-            this.props.navigation.navigate("Details", {
-              screenName: "accupressure"
-            });
-          }}
-        >
-          <Text style={styles.linkText}>
-            Accupressure{"\n"}
-            (touching in between the head)
-          </Text>
-        </TouchableOpacity> */}
-
-        <View style={[{ backgroundColor: "#f8982e" }, styles.linkContainer]}>
-          <Text style={styles.titleText}>Accupressure</Text>
-          <View style={styles.linkArea}>
-            <TouchableOpacity
-              onPress={() => {
-                this.props.navigation.navigate("Details", {
-                  screenName: "accupressure"
-                });
-              }}
-            >
-              <Text style={styles.linkText}>View details</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => {
-                this.props.navigation.navigate("Details", {
-                  screenName: "accupressure"
-                });
-              }}
-            >
-              <Text style={styles.linkText}>Play Audio</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-
-        {/* <TouchableOpacity
-          style={[{ backgroundColor: "#6fd0f4" }, styles.linkContainer]}
-          onPress={() => {
-            this.props.navigation.navigate("Details", {
-              screenName: "countingBackwards"
-            });
-          }}
-        >
-          <Text style={styles.linkText}>Counting backwards</Text>
-        </TouchableOpacity> */}
-
-        <View style={[{ backgroundColor: "#6fd0f4" }, styles.linkContainer]}>
-          <Text style={styles.titleText}>Counting backwards</Text>
-          <View style={styles.linkArea}>
-            <TouchableOpacity
-              onPress={() => {
-                this.props.navigation.navigate("Details", {
-                  screenName: "countingBackwards"
-                });
-              }}
-            >
-              <Text style={styles.linkText}>View details</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => {
-                this.props.navigation.navigate("Details", {
-                  screenName: "countingBackwards"
-                });
-              }}
-            >
-              <Text style={styles.linkText}>Play Audio</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-
-        {/* <TouchableOpacity
-          style={[{ backgroundColor: "#35c749" }, styles.linkContainer]}
-          onPress={() => {
-            this.props.navigation.navigate("Details", {
-              screenName: "leftNostrilBreathing"
-            });
-          }}
-        >
-          <Text style={styles.linkText}>Left nostril breathing</Text>
-        </TouchableOpacity> */}
-
-        <View style={[{ backgroundColor: "#35c749" }, styles.linkContainer]}>
-          <Text style={styles.titleText}>Left nostril breathing</Text>
-          <View style={styles.linkArea}>
-            <TouchableOpacity
-              onPress={() => {
-                this.props.navigation.navigate("Details", {
-                  screenName: "leftNostrilBreathing"
-                });
-              }}
-            >
-              <Text style={styles.linkText}>View details</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => {
-                this.props.navigation.navigate("Details", {
-                  screenName: "leftNostrilBreathing"
-                });
-              }}
-            >
-              <Text style={styles.linkText}>Play Audio</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
+        <HomeButton
+          navigation={this.props.navigation}
+          screenName="leftNostrilBreathing"
+        />
       </View>
     );
   }

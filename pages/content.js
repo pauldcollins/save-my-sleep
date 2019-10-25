@@ -1,5 +1,6 @@
 export const the878Method = {
   backgroundColor: "#6261FD",
+  buttonText: "The 8-7-8 method",
   heading: "The 8-7-8 method",
   subHeading:
     "Practising breath control can help reduce stress by relaxing the body and help in sending you off into sleep.",
@@ -14,6 +15,7 @@ export const the878Method = {
 
 export const progressiveRelaxation = {
   backgroundColor: "#fc3768",
+  buttonText: "Progressive relaxation",
   heading: "Progressive relaxation (contracting muscles)",
   subHeading:
     "Progressive relaxation can help to calm your heart rate and blood pressure which aids in the reduction of stress.",
@@ -35,6 +37,7 @@ export const progressiveRelaxation = {
 
 export const accupressure = {
   backgroundColor: "#f8982e",
+  buttonText: "Accupressure",
   heading: "Accupressure\n(touching points in between the head)",
   subHeading:
     "Acupressure is a focused relaxation technique based on ancient Chinese medical theory related to the flow of energy through specific points of the active network in your body.",
@@ -51,6 +54,7 @@ export const accupressure = {
 
 export const countingBackwards = {
   backgroundColor: "#6fd0f4",
+  buttonText: "Counting backwards",
   heading: "Counting backwards",
   subHeading:
     "Focusing on counting backwards will relax your mind and help you go to sleep",
@@ -63,6 +67,7 @@ export const countingBackwards = {
 
 export const leftNostrilBreathing = {
   backgroundColor: "#35c749",
+  buttonText: "Left nostril breathing",
   heading: "Left nostril breathing / Pranayama",
   subHeading:
     "This technique quickly relieves stress and anxiety, balancing the two hemispheres of the brain.",
