@@ -47,6 +47,7 @@ class HomeButton extends React.Component {
 
   async componentWillMount() {
     this.heartBeat = new Audio.Sound();
+    console.log("PROPS", this.props.screenName);
     this.heartBeat.loadAsync(eval(this.props.screenName));
 
     await Audio.setAudioModeAsync({

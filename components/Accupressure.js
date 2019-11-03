@@ -157,7 +157,7 @@ class Accupressure extends React.Component {
         step4: 60,
         step5: 10,
         step6: 60,
-        loops: 2,
+        loops: 6,
         loopsComplete: 0
       }
     });
