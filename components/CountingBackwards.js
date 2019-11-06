@@ -26,7 +26,7 @@ class CountingBackwards extends React.Component {
 
   async componentWillMount() {
     this.heartBeat = new Audio.Sound();
-    this.heartBeat.loadAsync(require("./CountingBackwards.mp3"));
+    this.heartBeat.loadAsync(require("../assets/sounds/CountingBackwards.mp3"));
 
     await Audio.setAudioModeAsync({
       playsInSilentModeIOS: true,

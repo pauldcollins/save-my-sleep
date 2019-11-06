@@ -28,7 +28,9 @@ class The878Method extends React.Component {
 
   async componentWillMount() {
     this.heartBeat = new Audio.Sound();
-    await this.heartBeat.loadAsync(require("./The878Method.mp3"));
+    await this.heartBeat.loadAsync(
+      require("../assets/sounds/The878Method.mp3")
+    );
 
     await Audio.setAudioModeAsync({
       playsInSilentModeIOS: true,

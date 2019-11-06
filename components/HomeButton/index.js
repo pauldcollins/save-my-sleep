@@ -5,17 +5,19 @@ import { Audio } from "expo-av";
 // content
 import * as content from "./../../pages/content";
 
-const the878Method = require("./The878MethodLong.mp3");
-const progressiveRelaxation = require("./ProgressiveRelaxationLong.mp3");
-const accupressure = require("./AccupressureLong.mp3");
-const countingBackwards = require("./CountingBackwardsLong.mp3");
-const leftNostrilBreathing = require("./LeftNostrilBreathingLong.mp3");
+const the878Method = require("../../assets/sounds/The878MethodLong.mp3");
+const progressiveRelaxation = require("../../assets/sounds/ProgressiveRelaxationLong.mp3");
+const accupressure = require("../../assets/sounds/AccupressureLong.mp3");
+const countingBackwards = require("../../assets/sounds/CountingBackwardsLong.mp3");
+const leftNostrilBreathing = require("../../assets/sounds/LeftNostrilBreathingLong.mp3");
 
 const styles = StyleSheet.create({
   linkContainer: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    marginHorizontal: 1,
+    marginTop: 1
   },
   titleText: {
     fontSize: 26,
@@ -47,7 +49,6 @@ class HomeButton extends React.Component {
 
   async componentWillMount() {
     this.heartBeat = new Audio.Sound();
-    console.log("PROPS", this.props.screenName);
     this.heartBeat.loadAsync(eval(this.props.screenName));
 
     await Audio.setAudioModeAsync({
@@ -89,7 +90,7 @@ class HomeButton extends React.Component {
 
   handleStopSound = async val => {
     try {
-      await this.heartBeat.setPositionAsync(0);
+      // await this.heartBeat.setPositionAsync(0);
       await this.heartBeat.stopAsync();
     } catch (error) {
       console.log("ERROR", error);

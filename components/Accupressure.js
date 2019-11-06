@@ -31,7 +31,7 @@ class Accupressure extends React.Component {
 
   async componentWillMount() {
     this.heartBeat = new Audio.Sound();
-    this.heartBeat.loadAsync(require("./Accupressure.mp3"));
+    this.heartBeat.loadAsync(require("../assets/sounds/Accupressure.mp3"));
 
     await Audio.setAudioModeAsync({
       playsInSilentModeIOS: true,
