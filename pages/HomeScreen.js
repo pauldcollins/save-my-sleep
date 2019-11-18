@@ -1,7 +1,8 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, Button, Image } from "react-native";
 
 import HomeButton from "../components/HomeButton";
+import Logo from "../assets/images/logo-with-title.png";
 
 const styles = StyleSheet.create({
   container: {
@@ -12,19 +13,20 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#ffffff",
-    paddingTop: 100,
+    paddingTop: 120,
     paddingBottom: 20
   },
-  headerText: {
-    fontSize: 40,
-    color: "#545455",
-    textAlign: "center"
+  headerLogo: {
+    width: 200,
+    height: 110,
+    resizeMode: "contain"
   },
   headerSubText: {
     fontSize: 20,
-    color: "#545455",
+    color: "#162d50",
     textAlign: "center",
-    paddingTop: 10,
+    paddingTop: 20,
+    paddingBottom: 60,
     paddingHorizontal: 20
   }
 });
@@ -34,7 +36,8 @@ class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.headerContainer}>
-          <Text style={styles.headerText}>The Sleep App</Text>
+          <Image style={styles.headerLogo} source={Logo} />
+
           <Text style={styles.headerSubText}>
             A set of different exercises{"\n"}to help you get to sleep
           </Text>
@@ -67,6 +70,19 @@ class HomeScreen extends React.Component {
       </View>
     );
   }
+
+  static navigationOptions = ({ navigation }) => {
+    return {
+      headerRight: (
+        <Button
+          onPress={() => {
+            //sdfdsfsd
+          }}
+          title="Blah blah"
+        />
+      )
+    };
+  };
 }
 
 export default HomeScreen;
