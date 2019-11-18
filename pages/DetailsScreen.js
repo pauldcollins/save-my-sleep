@@ -7,7 +7,7 @@ import {
   ScrollView,
   TouchableOpacity
 } from "react-native";
-// import { createStackNavigator } from "react-navigation";
+import constants from "./../constants/styles";
 
 // content
 import * as content from "./content";
@@ -67,7 +67,7 @@ class DetailsScreen extends React.Component {
 
           <Button
             title="Back to home"
-            color="grey"
+            color={constants.colors.darkBlue}
             onPress={() => this.props.navigation.goBack()}
           />
         </View>
@@ -105,12 +105,12 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontSize: 30,
-    color: "#545455",
+    color: constants.colors.darkBlue,
     textAlign: "center"
   },
   headerSubText: {
     fontSize: 20,
-    color: "#545455",
+    color: constants.colors.darkBlue,
     textAlign: "center",
     paddingTop: 10,
     paddingHorizontal: 20
@@ -140,10 +140,10 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: "#545455"
+    borderColor: constants.colors.darkBlue
   },
   buttonText: {
-    color: "#545455",
+    color: constants.colors.darkBlue,
     textAlign: "center",
     paddingLeft: 10,
     paddingRight: 10,

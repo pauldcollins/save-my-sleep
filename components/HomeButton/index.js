@@ -15,9 +15,7 @@ const styles = StyleSheet.create({
   linkContainer: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
-    marginHorizontal: 1,
-    marginTop: 1
+    alignItems: "center"
   },
   titleText: {
     fontSize: 26,

@@ -14,6 +14,8 @@ import Accupressure from "../components/Accupressure";
 import CountingBackwards from "../components/CountingBackwards";
 import LeftNostrilBreathing from "../components/LeftNostrilBreathing";
 
+import constants from "./../constants/styles";
+
 // content
 import * as content from "./content";
 
@@ -86,12 +88,12 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontSize: 30,
-    color: "#545455",
+    color: constants.colors.darkBlue,
     textAlign: "center"
   },
   headerSubText: {
     fontSize: 20,
-    color: "#545455",
+    color: constants.colors.darkBlue,
     textAlign: "center",
     paddingTop: 10,
     paddingHorizontal: 20
@@ -110,7 +112,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10
   },
   backButtonText: {
-    color: "#545455",
+    color: constants.colors.darkBlue,
     textAlign: "center",
     paddingLeft: 10,
     paddingRight: 10,

@@ -4,6 +4,9 @@ export default StyleSheet.create({
   container: {
     paddingVertical: 20
   },
+  colors: {
+    darkBlue: "#162d50"
+  },
   timer: {
     borderRadius:
       Math.round(

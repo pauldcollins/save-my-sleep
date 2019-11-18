@@ -1,5 +1,5 @@
 export const the878Method = {
-  backgroundColor: "#6261FD",
+  backgroundColor: "#162d50",
   buttonText: "The 8-7-8 method",
   heading: "The 8-7-8 method",
   subHeading:
@@ -14,7 +14,7 @@ export const the878Method = {
 };
 
 export const progressiveRelaxation = {
-  backgroundColor: "#fc3768",
+  backgroundColor: "#162d50",
   buttonText: "Progressive relaxation",
   heading: "Progressive relaxation (contracting muscles)",
   subHeading:
@@ -36,7 +36,7 @@ export const progressiveRelaxation = {
 };
 
 export const accupressure = {
-  backgroundColor: "#f8982e",
+  backgroundColor: "#162d50",
   buttonText: "Accupressure",
   heading: "Accupressure\n(touching points in between the head)",
   subHeading:
@@ -53,7 +53,7 @@ export const accupressure = {
 };
 
 export const countingBackwards = {
-  backgroundColor: "#6fd0f4",
+  backgroundColor: "#162d50",
   buttonText: "Counting backwards",
   heading: "Counting backwards",
   subHeading:
@@ -66,7 +66,7 @@ export const countingBackwards = {
 };
 
 export const leftNostrilBreathing = {
-  backgroundColor: "#35c749",
+  backgroundColor: "#162d50",
   buttonText: "Left nostril breathing",
   heading: "Left nostril breathing / Pranayama",
   subHeading:
