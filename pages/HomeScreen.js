@@ -1,31 +1,55 @@
 import React from "react";
-import { View, Text, StyleSheet, Button, Image } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Button,
+  Image,
+  SafeAreaView
+} from "react-native";
 
 import HomeButton from "../components/HomeButton";
-import Logo from "../assets/images/logo-with-title.png";
+import Logo from "../assets/images/logo-with-title-white.png";
+import CogIcon from "../assets/icons/cog-icon.png";
 import constants from "./../constants/styles";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#162d50"
+    backgroundColor: constants.colors.blackBlue
   },
   headerContainer: {
-    flex: 1.2,
+    flex: 1.5,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#ffffff",
-    paddingTop: 120,
-    paddingBottom: 20
+    backgroundColor: constants.colors.blackBlue,
+    paddingTop: 20,
+    paddingBottom: 20,
+    borderBottomWidth: 0.5,
+    borderBottomColor: "#FFF"
   },
   headerLogo: {
     width: 200,
     height: 110,
     resizeMode: "contain"
   },
+  contactContainer: {
+    flex: 0.5,
+    height: 10,
+    alignItems: "flex-end",
+    justifyContent: "flex-end",
+    paddingRight: 15,
+    backgroundColor: constants.colors.blackBlue
+  },
+  contactIcon: {
+    width: 25,
+    height: 25,
+    alignSelf: "flex-end"
+  },
   headerSubText: {
     fontSize: 20,
-    color: constants.colors.darkBlue,
+    color: "#FFF",
     textAlign: "center",
     paddingTop: 20,
     paddingBottom: 60,
@@ -41,7 +65,20 @@ const styles = StyleSheet.create({
 class HomeScreen extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.contactContainer}>
+          <TouchableOpacity
+            onPress={() => {
+              this.props.navigation.navigate("Contact");
+            }}
+          >
+            <Image
+              style={styles.contactIcon}
+              source={CogIcon}
+              resizeMode="cover"
+            />
+          </TouchableOpacity>
+        </View>
         <View style={styles.headerContainer}>
           <Image style={styles.headerLogo} source={Logo} />
 
@@ -78,7 +115,8 @@ class HomeScreen extends React.Component {
           navigation={this.props.navigation}
           screenName="leftNostrilBreathing"
         />
-      </View>
+        <View style={styles.separator} />
+      </SafeAreaView>
     );
   }
 
