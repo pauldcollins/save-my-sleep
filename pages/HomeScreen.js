@@ -5,25 +5,31 @@ import {
   StyleSheet,
   Button,
   Image,
+  ImageBackground,
   SafeAreaView
 } from "react-native";
 
 import HomeButton from "../components/HomeButton";
 import Logo from "../assets/images/logo-with-title-white.png";
 import CogIcon from "../assets/icons/cog-icon.png";
+import BackgroundImage from "../assets/images/564383.jpg";
 import constants from "./../constants/styles";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: constants.colors.blackBlue
+    flex: 1
+    // backgroundColor: constants.colors.blackBlue
+  },
+  imageContainer: {
+    display: "flex",
+    height: "100%"
   },
   headerContainer: {
     flex: 1.5,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: constants.colors.blackBlue,
+    // backgroundColor: constants.colors.blackBlue,
     paddingTop: 20,
     paddingBottom: 20,
     borderBottomWidth: 0.5,
@@ -39,8 +45,8 @@ const styles = StyleSheet.create({
     height: 10,
     alignItems: "flex-end",
     justifyContent: "flex-end",
-    paddingRight: 15,
-    backgroundColor: constants.colors.blackBlue
+    paddingRight: 15
+    // backgroundColor: constants.colors.blackBlue
   },
   contactIcon: {
     width: 25,
@@ -65,58 +71,63 @@ const styles = StyleSheet.create({
 class HomeScreen extends React.Component {
   render() {
     return (
-      <SafeAreaView style={styles.container}>
-        <View style={styles.contactContainer}>
-          <TouchableOpacity
-            onPress={() => {
-              this.props.navigation.navigate("Contact");
-            }}
-          >
-            <Image
-              style={styles.contactIcon}
-              source={CogIcon}
-              resizeMode="cover"
-            />
-          </TouchableOpacity>
-        </View>
-        <View style={styles.headerContainer}>
-          <Image style={styles.headerLogo} source={Logo} />
+      <ImageBackground
+        source={BackgroundImage}
+        style={styles.imageContainer}
+        imageStyle={{ resizeMode: "cover", height: "100%" }}
+      >
+        <SafeAreaView style={styles.container}>
+          <View style={styles.contactContainer}>
+            <TouchableOpacity
+              onPress={() => {
+                this.props.navigation.navigate("Contact");
+              }}
+            >
+              <Image
+                style={styles.contactIcon}
+                source={CogIcon}
+                resizeMode="cover"
+              />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.headerContainer}>
+            <Image style={styles.headerLogo} source={Logo} />
 
-          <Text style={styles.headerSubText}>
-            A set of different exercises{"\n"}to help you get to sleep
-          </Text>
-        </View>
+            <Text style={styles.headerSubText}>
+              A set of different exercises{"\n"}to help you get to sleep
+            </Text>
+          </View>
+          <HomeButton
+            navigation={this.props.navigation}
+            screenName="the878Method"
+          />
+          <View style={styles.separator} />
 
-        <HomeButton
-          navigation={this.props.navigation}
-          screenName="the878Method"
-        />
-        <View style={styles.separator} />
+          <HomeButton
+            navigation={this.props.navigation}
+            screenName="progressiveRelaxation"
+          />
+          <View style={styles.separator} />
 
-        <HomeButton
-          navigation={this.props.navigation}
-          screenName="progressiveRelaxation"
-        />
-        <View style={styles.separator} />
+          <HomeButton
+            navigation={this.props.navigation}
+            screenName="accupressure"
+          />
+          <View style={styles.separator} />
 
-        <HomeButton
-          navigation={this.props.navigation}
-          screenName="accupressure"
-        />
-        <View style={styles.separator} />
+          <HomeButton
+            navigation={this.props.navigation}
+            screenName="countingBackwards"
+          />
+          <View style={styles.separator} />
 
-        <HomeButton
-          navigation={this.props.navigation}
-          screenName="countingBackwards"
-        />
-        <View style={styles.separator} />
-
-        <HomeButton
-          navigation={this.props.navigation}
-          screenName="leftNostrilBreathing"
-        />
-        <View style={styles.separator} />
-      </SafeAreaView>
+          <HomeButton
+            navigation={this.props.navigation}
+            screenName="leftNostrilBreathing"
+          />
+          <View style={styles.separator} />
+        </SafeAreaView>
+      </ImageBackground>
     );
   }
 

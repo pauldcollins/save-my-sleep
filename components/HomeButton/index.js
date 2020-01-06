@@ -106,7 +106,7 @@ class HomeButton extends React.Component {
     return (
       <View
         style={[
-          { backgroundColor: content[this.props.screenName].backgroundColor },
+          // { backgroundColor: content[this.props.screenName].backgroundColor },
           styles.linkContainer
         ]}
       >
