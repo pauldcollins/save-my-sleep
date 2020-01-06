@@ -19,21 +19,23 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 const styles = StyleSheet.create({
   container: {
     flex: 1
-    // backgroundColor: constants.colors.blackBlue
   },
   imageContainer: {
     display: "flex",
+    height: "100%"
+  },
+  image: {
+    resizeMode: "cover",
     height: "100%"
   },
   headerContainer: {
     flex: 1.5,
     justifyContent: "center",
     alignItems: "center",
-    // backgroundColor: constants.colors.blackBlue,
     paddingTop: 20,
     paddingBottom: 20,
     borderBottomWidth: 0.5,
-    borderBottomColor: "#FFF"
+    borderBottomColor: constants.colors.white
   },
   headerLogo: {
     width: 200,
@@ -46,7 +48,6 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
     justifyContent: "flex-end",
     paddingRight: 15
-    // backgroundColor: constants.colors.blackBlue
   },
   contactIcon: {
     width: 25,
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
   },
   headerSubText: {
     fontSize: 20,
-    color: "#FFF",
+    color: constants.colors.white,
     textAlign: "center",
     paddingTop: 20,
     paddingBottom: 60,
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
   },
   separator: {
     height: 1,
-    backgroundColor: "#FFF",
+    backgroundColor: constants.colors.white,
     opacity: 0.3
   }
 });
@@ -74,7 +75,7 @@ class HomeScreen extends React.Component {
       <ImageBackground
         source={BackgroundImage}
         style={styles.imageContainer}
-        imageStyle={{ resizeMode: "cover", height: "100%" }}
+        imageStyle={styles.image}
       >
         <SafeAreaView style={styles.container}>
           <View style={styles.contactContainer}>
@@ -130,19 +131,6 @@ class HomeScreen extends React.Component {
       </ImageBackground>
     );
   }
-
-  static navigationOptions = ({ navigation }) => {
-    return {
-      headerRight: (
-        <Button
-          onPress={() => {
-            //sdfdsfsd
-          }}
-          title="Blah blah"
-        />
-      )
-    };
-  };
 }
 
 export default HomeScreen;

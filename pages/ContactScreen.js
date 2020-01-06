@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontSize: 20,
-    color: "#FFF",
+    color: constants.colors.white,
     textAlign: "center",
     paddingTop: 20,
     paddingBottom: 20,
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   },
   bodyText: {
     fontSize: 15,
-    color: "#FFF",
+    color: constants.colors.white,
     textAlign: "center",
     paddingTop: 20,
     paddingBottom: 10,
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   },
   linkText: {
     fontSize: 15,
-    color: "#FFF",
+    color: constants.colors.white,
     textDecorationLine: "underline"
   },
   button: {
@@ -47,13 +47,13 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     paddingVertical: 10,
     paddingHorizontal: 20,
-    backgroundColor: "white",
+    backgroundColor: constants.colors.darkBlue,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: constants.colors.darkBlue
+    borderColor: "white"
   },
   buttonText: {
-    color: constants.colors.darkBlue,
+    color: "white",
     textAlign: "center",
     paddingLeft: 10,
     paddingRight: 10,
@@ -75,7 +75,7 @@ class ContactScreen extends React.Component {
           <TouchableOpacity
             style={styles.button}
             onPress={() => Linking.openURL("mailto:thesleepapp@gmail.com")}
-            underlayColor="#fff"
+            underlayColor={constants.colors.white}
           >
             <Text style={styles.buttonText}>Email us!</Text>
           </TouchableOpacity>
@@ -95,7 +95,7 @@ class ContactScreen extends React.Component {
             navigation.goBack();
           }}
           title="Close"
-          color="#FFFFFF"
+          color={constants.colors.white}
         />
       )
     };

@@ -6,7 +6,8 @@ export default StyleSheet.create({
   },
   colors: {
     darkBlue: "#162d50",
-    blackBlue: "#132542"
+    blackBlue: "#132542",
+    white: "#fff"
   },
   timer: {
     borderRadius:

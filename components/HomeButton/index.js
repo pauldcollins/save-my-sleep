@@ -11,6 +11,8 @@ const accupressure = require("../../assets/sounds/AccupressureLong.mp3");
 const countingBackwards = require("../../assets/sounds/CountingBackwardsLong.mp3");
 const leftNostrilBreathing = require("../../assets/sounds/LeftNostrilBreathingLong.mp3");
 
+import constants from "./../../constants/styles";
+
 const styles = StyleSheet.create({
   linkContainer: {
     flex: 1,
@@ -19,7 +21,7 @@ const styles = StyleSheet.create({
   },
   titleText: {
     fontSize: 26,
-    color: "#ffffff",
+    color: constants.colors.white,
     textAlign: "center"
   },
   linkArea: {
@@ -28,7 +30,7 @@ const styles = StyleSheet.create({
   },
   linkText: {
     fontSize: 18,
-    color: "#ffffff",
+    color: constants.colors.white,
     textAlign: "center",
     paddingHorizontal: 10
   },
