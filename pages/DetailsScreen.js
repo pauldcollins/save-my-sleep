@@ -6,10 +6,12 @@ import {
   StyleSheet,
   ScrollView,
   ImageBackground,
+  Image,
   TouchableOpacity
 } from "react-native";
 
 import BackgroundImage from "../assets/images/564383.jpg";
+import ButtonImage from "../assets/images/button-graphic.jpg";
 import constants from "./../constants/styles";
 
 // content
@@ -67,16 +69,23 @@ const styles = StyleSheet.create({
     opacity: 0.3
   },
   button: {
-    marginHorizontal: 40,
+    marginHorizontal: 50,
     marginVertical: 20,
     paddingVertical: 10,
     backgroundColor: constants.colors.darkBlue,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: constants.colors.white
+    borderColor: constants.colors.white,
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center"
+  },
+  buttonImage: {
+    width: 25,
+    height: 25,
+    marginLeft: 45
   },
   buttonText: {
-    // color: constants.colors.darkBlue,
     color: constants.colors.white,
     textAlign: "center",
     paddingLeft: 10,
@@ -142,6 +151,11 @@ class DetailsScreen extends React.Component {
               }
               underlayColor={constants.colors.white}
             >
+              <Image
+                style={styles.buttonImage}
+                source={ButtonImage}
+                resizeMode="cover"
+              />
               <Text style={styles.buttonText}>Start sleeping!</Text>
             </TouchableOpacity>
 

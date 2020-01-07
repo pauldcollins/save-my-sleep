@@ -131,6 +131,14 @@ class HomeScreen extends React.Component {
       </ImageBackground>
     );
   }
+
+  static navigationOptions = ({ navigation }) => {
+    return {
+      headerStyle: {
+        backgroundColor: constants.colors.blackBlue
+      }
+    };
+  };
 }
 
 export default HomeScreen;
