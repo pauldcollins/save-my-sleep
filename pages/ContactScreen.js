@@ -67,6 +67,10 @@ class ContactScreen extends React.Component {
       <SafeAreaView style={styles.container}>
         <View style={styles.contentContainer}>
           <Text style={styles.headerText}>Contact Us</Text>
+          <Text style={[styles.bodyText, { marginBottom: 5 }]}>
+            Thanks for supporting and using The Sleep App! We hope it's helped
+            you relax and sleep.
+          </Text>
           <Text style={styles.bodyText}>
             We want to continue to improve the app and we'd love to hear from
             you. If you have any feedback, compliments, or suggestions, please
