@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "The Sleep App",
+    "name": "TheSleepApp",
     "icon": "./assets/icons/app-icon.png",
-    "version": "0.0.71",
+    "version": "0.0.72",
     "slug": "the-sleep-app",
     "sdkVersion": "34.0.0",
     "orientation": "portrait",
@@ -15,6 +15,10 @@
     "android": {
       "package": "com.noisie.thesleepapp"
     },
-    "assetBundlePatterns": ["**/*"]
+    "assetBundlePatterns": ["**/*"],
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "backgroundColor": "#132542"
+    }
   }
 }

@@ -13,8 +13,9 @@ import HomeButton from "../components/HomeButton";
 import Logo from "../assets/images/logo-with-title-white.png";
 import CogIcon from "../assets/icons/cog-icon.png";
 import BackgroundImage from "../assets/images/564383.jpg";
-import constants from "./../constants/styles";
 import { TouchableOpacity } from "react-native-gesture-handler";
+
+import { colors } from "./../pages/content";
 
 const styles = StyleSheet.create({
   container: {
@@ -32,10 +33,10 @@ const styles = StyleSheet.create({
     flex: 1.5,
     justifyContent: "center",
     alignItems: "center",
-    paddingTop: 20,
+    paddingTop: 30,
     paddingBottom: 20,
     borderBottomWidth: 0.5,
-    borderBottomColor: constants.colors.white
+    borderBottomColor: colors.white
   },
   headerLogo: {
     width: 200,
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
   },
   headerSubText: {
     fontSize: 20,
-    color: constants.colors.white,
+    color: colors.white,
     textAlign: "center",
     paddingTop: 20,
     paddingBottom: 60,
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
   },
   separator: {
     height: 1,
-    backgroundColor: constants.colors.white,
+    backgroundColor: colors.white,
     opacity: 0.3
   }
 });
@@ -135,7 +136,7 @@ class HomeScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
       headerStyle: {
-        backgroundColor: constants.colors.blackBlue
+        backgroundColor: colors.blackBlue
       }
     };
   };

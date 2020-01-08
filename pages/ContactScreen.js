@@ -9,12 +9,12 @@ import {
   TouchableOpacity
 } from "react-native";
 
-import constants from "./../constants/styles";
+import { colors } from "./../pages/content";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: constants.colors.darkBlue
+    backgroundColor: colors.darkBlue
   },
   contentContainer: {
     flex: 1.5,
@@ -22,8 +22,8 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   headerText: {
-    fontSize: 20,
-    color: constants.colors.white,
+    fontSize: 26,
+    color: colors.white,
     textAlign: "center",
     paddingTop: 20,
     paddingBottom: 20,
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   },
   bodyText: {
     fontSize: 15,
-    color: constants.colors.white,
+    color: colors.white,
     textAlign: "center",
     paddingTop: 20,
     paddingBottom: 10,
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   },
   linkText: {
     fontSize: 15,
-    color: constants.colors.white,
+    color: colors.white,
     textDecorationLine: "underline"
   },
   button: {
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     paddingVertical: 10,
     paddingHorizontal: 20,
-    backgroundColor: constants.colors.darkBlue,
+    backgroundColor: colors.darkBlue,
     borderRadius: 10,
     borderWidth: 1,
     borderColor: "white"
@@ -69,7 +69,7 @@ class ContactScreen extends React.Component {
           <Text style={styles.headerText}>Contact Us</Text>
           <Text style={[styles.bodyText, { marginBottom: 5 }]}>
             Thanks for supporting and using The Sleep App! We hope it's helped
-            you relax and sleep.
+            you find rest.
           </Text>
           <Text style={styles.bodyText}>
             We want to continue to improve the app and we'd love to hear from
@@ -79,7 +79,7 @@ class ContactScreen extends React.Component {
           <TouchableOpacity
             style={styles.button}
             onPress={() => Linking.openURL("mailto:thesleepapp@gmail.com")}
-            underlayColor={constants.colors.white}
+            underlayColor={colors.white}
           >
             <Text style={styles.buttonText}>Email us!</Text>
           </TouchableOpacity>
@@ -99,7 +99,7 @@ class ContactScreen extends React.Component {
             navigation.goBack();
           }}
           title="Close"
-          color={constants.colors.white}
+          color={colors.white}
         />
       )
     };

@@ -12,7 +12,7 @@ import {
 
 import BackgroundImage from "../assets/images/564383.jpg";
 import ButtonImage from "../assets/images/button-graphic.jpg";
-import constants from "./../constants/styles";
+import { colors } from "../pages/content";
 
 // content
 import * as content from "./content";
@@ -36,16 +36,16 @@ const styles = StyleSheet.create({
     paddingTop: 30,
     paddingBottom: 30,
     borderBottomWidth: 0.5,
-    borderBottomColor: constants.colors.white
+    borderBottomColor: colors.white
   },
   headerText: {
     fontSize: 30,
-    color: constants.colors.white,
+    color: colors.white,
     textAlign: "center"
   },
   headerSubText: {
     fontSize: 20,
-    color: constants.colors.white,
+    color: colors.white,
     textAlign: "center",
     paddingTop: 10,
     paddingHorizontal: 20
@@ -56,26 +56,26 @@ const styles = StyleSheet.create({
   },
   contentText: {
     fontSize: 20,
-    color: constants.colors.white,
+    color: colors.white,
     textAlign: "left",
     paddingVertical: 15,
     paddingHorizontal: 20,
-    borderBottomColor: constants.colors.white,
+    borderBottomColor: colors.white,
     borderBottomWidth: 1
   },
   separator: {
     height: 1,
-    backgroundColor: constants.colors.white,
+    backgroundColor: colors.white,
     opacity: 0.3
   },
   button: {
     marginHorizontal: 50,
     marginVertical: 20,
     paddingVertical: 10,
-    backgroundColor: constants.colors.darkBlue,
+    backgroundColor: colors.darkBlue,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: constants.colors.white,
+    borderColor: colors.white,
     flex: 1,
     flexDirection: "row",
     alignItems: "center"
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     marginLeft: 45
   },
   buttonText: {
-    color: constants.colors.white,
+    color: colors.white,
     textAlign: "center",
     paddingLeft: 10,
     paddingRight: 10,
@@ -149,7 +149,7 @@ class DetailsScreen extends React.Component {
               onPress={() =>
                 this.props.navigation.navigate("Timer", { screenName })
               }
-              underlayColor={constants.colors.white}
+              underlayColor={colors.white}
             >
               <Image
                 style={styles.buttonImage}
@@ -161,7 +161,7 @@ class DetailsScreen extends React.Component {
 
             <Button
               title="Back to home"
-              color={constants.colors.white}
+              color={colors.white}
               onPress={() => this.props.navigation.goBack()}
             />
           </View>
@@ -173,9 +173,9 @@ class DetailsScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
       headerStyle: {
-        backgroundColor: constants.colors.blackBlue
+        backgroundColor: colors.blackBlue
       },
-      headerTintColor: constants.colors.white,
+      headerTintColor: colors.white,
       headerRight: (
         <Button
           onPress={() =>
@@ -183,7 +183,7 @@ class DetailsScreen extends React.Component {
               screenName: navigation.state.params.screenName
             })
           }
-          color={constants.colors.white}
+          color={colors.white}
           title="Start "
         />
       )

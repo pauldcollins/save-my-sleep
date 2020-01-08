@@ -16,7 +16,7 @@ import CountingBackwards from "../components/CountingBackwards";
 import LeftNostrilBreathing from "../components/LeftNostrilBreathing";
 import BackgroundImage from "../assets/images/564383.jpg";
 
-import constants from "./../constants/styles";
+import { colors } from "./../pages/content";
 
 const styles = StyleSheet.create({
   container: {
@@ -40,12 +40,12 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontSize: 30,
-    color: constants.colors.white,
+    color: colors.white,
     textAlign: "center"
   },
   headerSubText: {
     fontSize: 20,
-    color: constants.colors.white,
+    color: colors.white,
     textAlign: "center",
     paddingTop: 10,
     paddingHorizontal: 20
@@ -60,11 +60,11 @@ const styles = StyleSheet.create({
   backButton: {
     alignSelf: "center",
     width: Dimensions.get("window").width * 0.5,
-    marginTop: 40,
+    marginTop: 20,
     paddingVertical: 10
   },
   backButtonText: {
-    color: constants.colors.darkBlue,
+    color: colors.white,
     textAlign: "center",
     paddingLeft: 10,
     paddingRight: 10,
@@ -137,9 +137,9 @@ class TimerScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
       headerStyle: {
-        backgroundColor: constants.colors.blackBlue
+        backgroundColor: colors.blackBlue
       },
-      headerTintColor: constants.colors.white
+      headerTintColor: colors.white
     };
   };
 }

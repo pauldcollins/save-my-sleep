@@ -80,3 +80,9 @@ export const leftNostrilBreathing = {
     "Repeat this process 10 times."
   ]
 };
+
+export const colors = {
+  darkBlue: "#162d50",
+  blackBlue: "#132542",
+  white: "#fff"
+};
