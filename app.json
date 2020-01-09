@@ -2,7 +2,7 @@
   "expo": {
     "name": "TheSleepApp",
     "icon": "./assets/icons/app-icon.png",
-    "version": "0.0.72",
+    "version": "0.0.74",
     "slug": "the-sleep-app",
     "sdkVersion": "34.0.0",
     "orientation": "portrait",

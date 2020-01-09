@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   backButton: {
     alignSelf: "center",
     width: Dimensions.get("window").width * 0.5,
-    marginTop: 20,
+    marginTop: 10,
     paddingVertical: 10
   },
   backButtonText: {

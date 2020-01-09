@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     flex: 1.5,
     justifyContent: "center",
     alignItems: "center",
-    paddingTop: 30,
+    paddingTop: 25,
     paddingBottom: 20,
     borderBottomWidth: 0.5,
     borderBottomColor: colors.white
@@ -127,7 +127,6 @@ class HomeScreen extends React.Component {
             navigation={this.props.navigation}
             screenName="leftNostrilBreathing"
           />
-          <View style={styles.separator} />
         </SafeAreaView>
       </ImageBackground>
     );
