@@ -78,12 +78,12 @@ const styles = StyleSheet.create({
     borderColor: colors.white,
     flex: 1,
     flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center",
+    justifyContent: "center"
   },
   buttonImage: {
     width: 25,
-    height: 25,
-    marginLeft: 45
+    height: 25
   },
   buttonText: {
     color: colors.white,
@@ -156,14 +156,15 @@ class DetailsScreen extends React.Component {
                 source={ButtonImage}
                 resizeMode="cover"
               />
-              <Text style={styles.buttonText}>Start sleeping!</Text>
+              <Text style={styles.buttonText}>Start sleeping! </Text>
             </TouchableOpacity>
 
-            <Button
-              title="Back to home"
-              color={colors.white}
+            <TouchableOpacity
               onPress={() => this.props.navigation.goBack()}
-            />
+              underlayColor={colors.white}
+            >
+              <Text style={styles.buttonText}>Back to home</Text>
+            </TouchableOpacity>
           </View>
         </ScrollView>
       </ImageBackground>
@@ -177,15 +178,15 @@ class DetailsScreen extends React.Component {
       },
       headerTintColor: colors.white,
       headerRight: (
-        <Button
+        <TouchableOpacity
           onPress={() =>
             navigation.navigate("Timer", {
               screenName: navigation.state.params.screenName
             })
           }
-          color={colors.white}
-          title="Start "
-        />
+        >
+          <Text style={styles.buttonText}>Start</Text>
+        </TouchableOpacity>
       )
     };
   };
