@@ -1,5 +1,12 @@
 import React from "react";
-import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  Text,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  Dimensions,
+  Modal
+} from "react-native";
 import { Audio } from "expo-av";
 
 // content
@@ -12,6 +19,8 @@ const countingBackwards = require("../../assets/sounds/CountingBackwardsLong.mp3
 const leftNostrilBreathing = require("../../assets/sounds/LeftNostrilBreathingLong.mp3");
 
 import { colors } from "../../pages/content";
+
+var { width, height } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   linkContainer: {
@@ -36,6 +45,14 @@ const styles = StyleSheet.create({
   },
   subText: {
     fontSize: 18
+  },
+  overlay: {
+    position: "absolute",
+    left: 0,
+    top: 0,
+    opacity: 0.5,
+    backgroundColor: "black",
+    zIndex: 100
   }
 });
 
@@ -43,8 +60,17 @@ class HomeButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      playing: false
+      playing: false,
+      modalVisible: false
     };
+
+    this.handleStopClick = this.handleStopClick.bind(this);
+    this.handleStartClick = this.handleStartClick.bind(this);
+    this.setModalVisible = this.setModalVisible.bind(this);
+  }
+
+  setModalVisible(visible) {
+    this.setState({ modalVisible: visible });
   }
 
   async componentWillMount() {
@@ -81,6 +107,10 @@ class HomeButton extends React.Component {
   componentWillUnmount() {
     this.handleStopSound();
     this.heartBeat.unloadAsync();
+  }
+
+  handleShowPlayer() {
+    this.setModalVisible(true);
   }
 
   handleStartClick() {
@@ -125,18 +155,54 @@ class HomeButton extends React.Component {
           >
             <Text style={styles.linkText}>View details</Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => {
-              {
-                playing ? this.handleStopClick() : this.handleStartClick();
-              }
-            }}
-          >
+          <TouchableOpacity onPress={() => this.handleShowPlayer()}>
             <Text style={styles.linkText}>
               {playing ? "Stop Audio" : "Play Audio"}
             </Text>
           </TouchableOpacity>
         </View>
+
+        {/* <View style={styles.overlay} /> */}
+
+        <Modal
+          animationType="slide"
+          transparent={false}
+          visible={this.state.modalVisible}
+          onShow={() => this.handleStartClick()}
+          onRequestClose={() => this.handleStopClick()}
+          style={styles.overlay}
+        >
+          <View
+            style={{
+              paddingTop: 200,
+              backgroundColor: colors.darkBlue,
+              height: "100%",
+              width: "100%"
+            }}
+          >
+            <View style={styles.linkArea}>
+              <TouchableOpacity
+                onPress={() => {
+                  {
+                    playing ? this.handleStopClick() : this.handleStartClick();
+                  }
+                }}
+              >
+                <Text style={styles.linkText}>
+                  {playing ? "Stop Audio" : "Play Audio"}
+                </Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                onPress={() => {
+                  this.setModalVisible(!this.state.modalVisible);
+                }}
+              >
+                <Text style={styles.linkText}>Hide Modal</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
       </View>
     );
   }
