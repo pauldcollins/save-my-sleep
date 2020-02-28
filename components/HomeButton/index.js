@@ -127,11 +127,6 @@ class HomeButton extends React.Component {
     this.setModalVisible(true);
   }
 
-  handleStartClick() {
-    this.handlePlaySound();
-    this.setState({ playing: true });
-  }
-
   handlePlaySound = async () => {
     try {
       // await this.heartBeat.setPositionAsync(0);
@@ -164,7 +159,7 @@ class HomeButton extends React.Component {
         .playAsync()
         .then(async playbackStatus => {
           console.log("playbackStatus", playbackStatus);
-          if (playbackStatus.positionMillis > playbackStatus.durationMillis) {
+          if (playbackStatus.positionMillis >= playbackStatus.durationMillis) {
             this.setState({ playing: false });
             this.heartBeat.setPositionAsync(0);
           } else {
@@ -197,6 +192,11 @@ class HomeButton extends React.Component {
       console.log("ERROR", error);
     }
   };
+
+  handleStartClick() {
+    this.handlePlaySound();
+    this.setState({ playing: true });
+  }
 
   handlePauseClick() {
     this.handlePauseSound();
