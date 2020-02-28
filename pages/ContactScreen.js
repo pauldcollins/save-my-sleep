@@ -14,7 +14,7 @@ import { colors } from "./../pages/content";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.darkBlue
+    backgroundColor: colors.blackBlue
   },
   contentContainer: {
     flex: 1.5,

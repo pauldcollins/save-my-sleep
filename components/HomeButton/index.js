@@ -8,6 +8,7 @@ import {
   Modal
 } from "react-native";
 import { Audio } from "expo-av";
+import { Ionicons } from "@expo/vector-icons";
 
 // content
 import * as content from "./../../pages/content";
@@ -37,11 +38,27 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginTop: 5
   },
+  controlArea: {
+    flexDirection: "row",
+    padding: 10,
+    borderColor: colors.blackBlue,
+    borderRadius: 10
+  },
   linkText: {
     fontSize: 18,
     color: colors.white,
     textAlign: "center",
     paddingHorizontal: 10
+  },
+  buttonText: {
+    fontSize: 14,
+    color: colors.white,
+    textAlign: "center"
+  },
+  closeText: {
+    fontSize: 15,
+    color: colors.white,
+    textDecorationLine: "underline"
   },
   subText: {
     fontSize: 18
@@ -51,8 +68,18 @@ const styles = StyleSheet.create({
     left: 0,
     top: 0,
     opacity: 0.5,
-    backgroundColor: "black",
     zIndex: 100
+  },
+  modalInner: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: colors.blackBlue,
+    height: "100%",
+    width: "100%"
+  },
+  controlButton: {
+    marginHorizontal: 20
   }
 });
 
@@ -88,20 +115,7 @@ class HomeButton extends React.Component {
     });
     await Audio.setIsEnabledAsync(true);
     await this.heartBeat.setPositionAsync(0);
-  }
-
-  handlePlaySound = async () => {
-    try {
-      await this.heartBeat.setPositionAsync(0);
-      await this.heartBeat.playAsync();
-    } catch (error) {
-      console.log("ERROR", error);
-    }
-  };
-
-  componentDidUpdate() {
-    // this.handleResetClick();
-    // this.handleStartClick();
+    this.heartBeat.setOnPlaybackStatusUpdate(this._onPlaybackStatusUpdate);
   }
 
   componentWillUnmount() {
@@ -118,18 +132,90 @@ class HomeButton extends React.Component {
     this.setState({ playing: true });
   }
 
-  handleStopSound = async val => {
+  handlePlaySound = async () => {
     try {
       // await this.heartBeat.setPositionAsync(0);
+      await this.heartBeat.playAsync();
+    } catch (error) {
+      console.log("ERROR", error);
+    }
+  };
+
+  handleStopSound = async val => {
+    try {
+      await this.heartBeat.setPositionAsync(0);
       await this.heartBeat.stopAsync();
     } catch (error) {
       console.log("ERROR", error);
     }
   };
 
+  handlePauseSound = async val => {
+    try {
+      await this.heartBeat.pauseAsync();
+    } catch (error) {
+      console.log("ERROR", error);
+    }
+  };
+
+  handleSkipForwardSound = () => {
+    try {
+      this.heartBeat
+        .playAsync()
+        .then(async playbackStatus => {
+          console.log("playbackStatus", playbackStatus);
+          if (playbackStatus.positionMillis > playbackStatus.durationMillis) {
+            this.setState({ playing: false });
+            this.heartBeat.setPositionAsync(0);
+          } else {
+            this.heartBeat.setPositionAsync(
+              playbackStatus.positionMillis + 15000
+            );
+          }
+        })
+        .catch(error => {
+          console.log("ERROR", error);
+        });
+    } catch (error) {
+      console.log("ERROR", error);
+    }
+  };
+
+  handleSkipBackwardSound = () => {
+    try {
+      this.heartBeat
+        .playAsync()
+        .then(async playbackStatus => {
+          this.heartBeat.setPositionAsync(
+            playbackStatus.positionMillis - 15000
+          );
+        })
+        .catch(error => {
+          console.log("ERROR", error);
+        });
+    } catch (error) {
+      console.log("ERROR", error);
+    }
+  };
+
+  handlePauseClick() {
+    this.handlePauseSound();
+    this.setState({ playing: false });
+  }
+
   handleStopClick() {
     this.handleStopSound();
     this.setState({ playing: false });
+  }
+
+  handleSkipForwardClick() {
+    this.handleSkipForwardSound();
+    this.setState({ playing: true });
+  }
+
+  handleSkipBackwardClick() {
+    this.handleSkipBackwardSound();
+    this.setState({ playing: true });
   }
 
   render() {
@@ -156,9 +242,7 @@ class HomeButton extends React.Component {
             <Text style={styles.linkText}>View details</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.handleShowPlayer()}>
-            <Text style={styles.linkText}>
-              {playing ? "Stop Audio" : "Play Audio"}
-            </Text>
+            <Text style={styles.linkText}>Play Audio</Text>
           </TouchableOpacity>
         </View>
 
@@ -172,35 +256,60 @@ class HomeButton extends React.Component {
           onRequestClose={() => this.handleStopClick()}
           style={styles.overlay}
         >
-          <View
-            style={{
-              paddingTop: 200,
-              backgroundColor: colors.darkBlue,
-              height: "100%",
-              width: "100%"
-            }}
-          >
-            <View style={styles.linkArea}>
+          <View style={styles.modalInner}>
+            <View style={styles.controlArea}>
               <TouchableOpacity
-                onPress={() => {
-                  {
-                    playing ? this.handleStopClick() : this.handleStartClick();
-                  }
-                }}
+                onPress={() => this.handleSkipBackwardClick()}
+                style={styles.controlButton}
               >
-                <Text style={styles.linkText}>
-                  {playing ? "Stop Audio" : "Play Audio"}
-                </Text>
+                <Ionicons name="md-skip-backward" size={60} color="white" />
+                <Text style={styles.buttonText}>15 Sec</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                onPress={() => this.handleStopClick()}
+                style={styles.controlButton}
+              >
+                <Ionicons name="md-square" size={60} color="white" />
+                <Text style={styles.buttonText}>Stop</Text>
               </TouchableOpacity>
 
               <TouchableOpacity
                 onPress={() => {
-                  this.setModalVisible(!this.state.modalVisible);
+                  {
+                    playing ? this.handlePauseClick() : this.handleStartClick();
+                  }
                 }}
+                style={styles.controlButton}
               >
-                <Text style={styles.linkText}>Hide Modal</Text>
+                {playing ? (
+                  <Ionicons name="md-pause" size={60} color="white" />
+                ) : (
+                  <Ionicons name="md-play" size={60} color="white" />
+                )}
+                <Text style={styles.buttonText}>
+                  {playing ? "Pause" : "Play"}
+                </Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                onPress={() => this.handleSkipForwardClick()}
+                style={styles.controlButton}
+              >
+                <Ionicons name="md-skip-forward" size={60} color="white" />
+                <Text style={styles.buttonText}>15 Sec</Text>
               </TouchableOpacity>
             </View>
+
+            <TouchableOpacity
+              onPress={() => {
+                this.handleStopClick();
+                this.setModalVisible(!this.state.modalVisible);
+              }}
+              style={{ marginTop: 40 }}
+            >
+              <Text style={styles.closeText}>Close player</Text>
+            </TouchableOpacity>
           </View>
         </Modal>
       </View>
