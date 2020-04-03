@@ -13,11 +13,11 @@ import { Ionicons } from "@expo/vector-icons";
 // content
 import * as content from "./../../pages/content";
 
-const the878Method = require("../../assets/sounds/The878MethodLong.mp3");
-const progressiveRelaxation = require("../../assets/sounds/ProgressiveRelaxationLong.mp3");
-const accupressure = require("../../assets/sounds/AccupressureLong.mp3");
-const countingBackwards = require("../../assets/sounds/CountingBackwardsLong.mp3");
-const leftNostrilBreathing = require("../../assets/sounds/LeftNostrilBreathingLong.mp3");
+const the878Method = require("../../assets/sounds/long/The878MethodLong.mp3");
+const progressiveRelaxation = require("../../assets/sounds/long/ProgressiveRelaxationLong.mp3");
+const accupressure = require("../../assets/sounds/long/AccupressureLong.mp3");
+const countingBackwards = require("../../assets/sounds/long/CountingBackwardsLong.mp3");
+const leftNostrilBreathing = require("../../assets/sounds/long/LeftNostrilBreathingLong.mp3");
 
 import { colors } from "../../pages/content";
 
